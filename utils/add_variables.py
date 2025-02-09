@@ -180,6 +180,13 @@ for instrument in args.notes:
         logging.warning("Ignoring unknown instrument '%s'.", instrument)
         continue
 
+    if abbr == "trb" and num == "2":
+        clef = "tenor"
+    elif abbr == "trb" and num == "3":
+        clef = "bass"
+    else:
+        clef = instrument_data.loc[abbr, "clef"]
+
     if instrument_data.loc[abbr, "default_key"] == "none":
         key = args.key
     else:
@@ -202,7 +209,7 @@ for instrument in args.notes:
         instrument=f"{instrument_long}{arabic_to_roman(num)}",
         relative=instrument_data.loc[abbr, "relative"],
         time_modifier=time_modifier,
-        clef=instrument_data.loc[abbr, "clef"],
+        clef=clef,
         key=make_key_signature(key),
         time=args.time,
         autobeam="\\autoBeamOff "
