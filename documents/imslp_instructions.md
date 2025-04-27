@@ -26,7 +26,7 @@ Template for work metadata:
 Instrument names:
 - strings in plural and with roman numerals (e.g, Violins I, Violins II, Violas, Cellos/Basses)
 - other instruments singular and with arabic numerals (e.g., Oboe 1, Trombone 2 ...)
-- parts with several instruments in a grand staff: separate numbers with slashes (e.g., Horn 1/2 (C), Trumpet 1/2 (C)/Timpani)
+- parts with several instruments in a grand staff: separate numbers with slashes (e.g., Horn 1/2 (B♭), Trumpet 1/2 (C)/Timpani)
 - do not write key changes in the timpani
 
 **Never upload more than ten works per day**, since otherwise the IMSLP admins will have a hard time in keeping up with reviewing! 
