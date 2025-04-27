@@ -32,3 +32,4 @@
   - clarify that in allabreves, breves are regarded as single bar (e.g., Litainae WerW G.17)
 - add macro `\skips` (see WerW incipit header)
 - clarify that in the critical report, vl means vl 1/2
+- update \critnote: `critnote = \markup { \epsfile #X #1.35 #"critnote.eps" }`
