@@ -928,6 +928,11 @@ Extract even pages of a PDF.
 gs -sDEVICE=pdfwrite -sPageList=even -sOutputFile=even.pdf -dBATCH -dNOPAUSE file-pdf
 ```
 
+Download a set of images from OSZK Copia with [iiif-download](https://github.com/Segolene-Albouy/iiif-download).
+```bash
+export IIIF_MAX_SIZE=2155; iiif-download -d . https://copia.oszk.hu/kotta/2-rorate-caeli-f-dur/?manifest
+```
+
 
 ### How to create a new EES Tools release
 
