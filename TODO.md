@@ -33,3 +33,5 @@
 - add macro `\skips` (see WerW incipit header)
 - clarify that in the critical report, vl means vl 1/2
 - update \critnote: `critnote = \markup { \epsfile #X #1.35 #"critnote.eps" }`
+- add hexlogo
+- add possibility to enlarge first page of critical commentary to accomodate tables with one line too much
