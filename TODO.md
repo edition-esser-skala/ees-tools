@@ -35,3 +35,4 @@
 - update \critnote: `critnote = \markup { \epsfile #X #1.35 #"critnote.eps" }`
 - add hexlogo
 - add possibility to enlarge first page of critical commentary to accomodate tables with one line too much
+- att option for the left indent of the abbreviation list
