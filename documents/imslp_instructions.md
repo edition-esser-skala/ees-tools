@@ -8,6 +8,8 @@ Generally, follow the official instructions on
 - [genres](https://imslp.org/wiki/IMSLP:Tagging)
 - [work pages](https://imslp.org/wiki/IMSLP:Score_submission_guide/Layout_of_Work_Pages).
 
+For large-scale sacred works with typically many players per instrument (e.g., masses), divide the full score (incl. engraving files) and parts between two tabs “Score” and “Parts”. For chamber music-like works (e.g, motets), put all of these files on a single tab “Score and Parts”.
+
 Submit vocal scores as “Other” and manually change the header to
 ```
 ===Vocal Scores===
@@ -44,3 +46,5 @@ Mark a superseded score for deletion by editing its page and inserting a note li
 ```
 {{Delete|in v2.0.0, trumpets+timpani and horns have been split into two separate files}}
 ```
+
+Do not change an existing tab division, since it likely has been reviewed by an admin.
