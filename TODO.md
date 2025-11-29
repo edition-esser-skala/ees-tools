@@ -2,7 +2,6 @@
 
 - keep subtitle and id separated
 - add `\once \override Score.RehearsalMark.break-visibility = ##(#t #t #f)` to \markDaCapo
-- use biblatex/biber to print an optional bibliography
 - maybe directives such as “poco f” and “p assai” should be centered on the dynamics letter (see WerW I.4.54)
 - generate cover for KDP automatically
 - add macro for `\set Staff.soloText = \markup \remark \medium "cl 1"` and similar commands
@@ -35,4 +34,4 @@
 - update \critnote: `critnote = \markup { \epsfile #X #1.35 #"critnote.eps" }`
 - add hexlogo
 - add possibility to enlarge first page of critical commentary to accomodate tables with one line too much
-- att option for the left indent of the abbreviation list
+- add option for the left indent of the abbreviation list
