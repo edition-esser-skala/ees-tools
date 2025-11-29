@@ -663,7 +663,7 @@ markOsannaDaCapo = {
 Change displayed time signature fraction.
 
 ```lilypond
-\set Staff.timeSignatureFraction = 3/8
+\set Staff.timeSignatureFraction = 2/2
 ```
 
 Show only numerator of time signature.
