@@ -12,6 +12,7 @@
   - `\fivehatflat` and `\fivehatnatural`, which are similar to `\fivehat` but add the respective accidentals
   - `\hA`, which hides an accidental
   - `\markCritnote`, which prints an asterisk above the system
+  - `\mvTz`, which tweaks the X-offset of a markup back to zero
   - `\setSoloText` and `\setSoloIIText`, which set and format the solo(II) text for `\partCombine`
   - `\skips`, which skips notes in lyrics
   - `\tempoTitle` and `\tempoTitleMarkup`, which format inline section titles (with tempo indication)

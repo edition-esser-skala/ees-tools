@@ -560,6 +560,7 @@ twotwotime = {
     #'((end . (((1 . 16) . (4 4 4 4)) ((1 . 8) . (4 4)))))
 }
 
+mvTz = \tweak TextScript.X-offset #0 \etc
 mvTr = \once \override TextScript.X-offset = #2
 mvTrh = \once \override TextScript.X-offset = #2.5
 mvTrr = \once \override TextScript.X-offset = #3

@@ -344,6 +344,7 @@ TOC commands:
 - `\mvTr`: move text 2 staff spaces to the right
 - `\mvTrh`: move text 2.5 staff spaces to the right
 - `\mvTrr`: move text 3 staff spaces to the right
+- `\mvTz`: undo text movement via a tweak
 - `\tempoMarkup "<tempo>"`: format the tempo indication
 - `\tempoTitle "<title>"`: format an inline title (italics)
 - `\tempoTitleMarkup "<title>" "<markup>"`: format an inline title with tempo indication
@@ -833,7 +834,7 @@ Incipits for …
   \incipit "Alto" "alto" #-18.3 #-0.3
   \incipit "Tenore" "tenor" #-19.7 #-0.3
   ```
-  
+
 - solo voice and strings:
   ```lilypond
   \incipit "Soprano" "soprano" #-18.0 #-2.8
@@ -866,7 +867,7 @@ Incipits for …
   \incipit "I" "soprano" #-16.1 #-0.8
   \incipit "II" "alto" #-16.4 #-0.8
   ```
-  
+
 - right hand of organ solo
   ```lilypond
   \incipit " " "soprano" #0 #-1.8
@@ -1062,4 +1063,3 @@ export IIIF_MAX_SIZE=2155; iiif-download -d . https://copia.oszk.hu/kotta/2-rora
   ```bash
   docker build --build-arg user_id=$(id -u) --build-arg group_id=$(id -g) --tag ees-tools .
   ```
-
