@@ -158,13 +158,10 @@ Repositories for collected works (Werner, Tůma …) contain additional files an
 - **make.py** – assembles a makefile from the contents of `works`, also taking ignored works into account; see `make info` for additional targets
 
 In the **metadata.yaml** file for each work, the `composer` key is optional. Moreover, the file supports additional keys:
-- `commentary`
-- `lyrics`
-- `acknowledgements`: Values of these three keys are glued together with appropriate headings and printed by `\eesCommentaryAfterToe`.
-- `festival`
-- `genre`: Values of these two keys are printed on the title page.
-- `tocstyle`: Values `none` and `default` override the class option.
-- `toe`: Value is printed by `\eesCriticalReport`.
+- `abbrwidth` and `tocstyle` (`none` or `default`) override the LaTeX class option of the same name.
+- `genre` and `festival` are printed as subtitle on the title page.
+- `toe` is passed to by `\eesCriticalReport`.
+- `commentary`, `lyrics`, and `acknowledgements` are glued together with appropriate headings and printed by `\eesCommentaryAfterToe`.
 
 ## ees.ly
 
