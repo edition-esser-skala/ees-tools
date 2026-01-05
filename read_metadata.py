@@ -81,6 +81,7 @@ METADATA_TEMPLATE = """
 \\def\\MetadataSubtitle{{{subtitle}}}
 \\def\\MetadataScoring{{{scoring}}}
 \\def\\MetadataEditor{{{editor}}}
+\\def\\MetadataOrcid{{{orcid}}}
 \\def\\MetadataScoretype{{{score_type}}}
 \\def\\MetadataLicense{{{license}}}
 \\def\\MetadataRepository{{{repository}}}
@@ -366,6 +367,8 @@ def parse_metadata(file=None,
     # set a default editor
     if "editor" not in metadata:
         metadata["editor"] = "Wolfgang Esser-Skala"
+    if "orcid" not in metadata:
+        metadata["orcid"] = "0000-0002-7350-4045"
 
     ## License
     # Check whether the license key (a) exists, (b) has a known value, and

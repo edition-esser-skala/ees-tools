@@ -417,6 +417,7 @@
 \def\namesuffix#1{\def\@namesuffix{#1}}
 \def\scoring#1{\def\@scoring{#1}}
 \def\editor#1{\def\@editor{#1}}
+\def\orcid#1{\def\@orcid{#1}}
 \def\license#1{\def\@license{#1}}
 \def\scoretype#1{\def\@scoretype{#1}}
 \def\repository#1{\def\@repository{#1}}
@@ -439,6 +440,7 @@
 \providecommand\MetadataSubtitle{\relax}
 \providecommand\MetadataScoring{\relax}
 \providecommand\MetadataEditor{\relax}
+\providecommand\MetadataOrcid{\relax}
 \providecommand\MetadataLicense{cc-by-sa-4.0}
 \providecommand\MetadataScoretype{\relax}
 \providecommand\MetadataRepository{\relax}
@@ -463,6 +465,7 @@
 \subtitle{\MetadataSubtitle}
 \scoring{\MetadataScoring}
 \editor{\MetadataEditor}
+\orcid{\MetadataOrcid}
 \license{\MetadataLicense}
 \scoretype{\MetadataScoretype}
 \repository{\MetadataRepository}
@@ -514,6 +517,7 @@
 
   © \DTMfetchyear{tagdate} by Edition Esser-Skala e.U. \ees@license@statement
 
+  Edited by \@editor\ · \includegraphics[height=1.33ex]{orcid.pdf} \href{https://orcid.org/\@orcid}{\@orcid}.\\
   Music engraving by LilyPond \MetadataLilypondVersion~(\url{https://www.lilypond.org}) and EES Tools \MetadataEESToolsVersion.\\
   Front matter typeset with Source Sans and Fredericka the Great.\\
   Please report any errors or mistakes to \url{edition@esser-skala.at}.

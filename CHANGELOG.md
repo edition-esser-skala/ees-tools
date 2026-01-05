@@ -18,6 +18,15 @@
   - `\trillFlat`, `\trillNatural`, and `\trillSharp`, which print a trill with the respective accidental
 - scheme functions:
   - `#(dotbf n)`, `#(dotbfflat n)`, `#(dotbfnatural n)`, and `#(dotbfsharp n)`, which print a dotted bass figure, including the respective accidental
+- a class option `enlargefirstpage` to enlarge the first page of the critical report
+- YAML metadata keys:
+  - `ark`: Archival Resource Key of the edition
+  - `orcid`: editor's ORCID
+- a script `make_collection.py` for creating collections of works, and its documentation
+- Editorial guidelines now clarify that
+  - in the org part, an alto clef in fugues is transcribed as treble ottavo.
+  - in the staff column of the TOE, an abbreviation like “vl” denotes all staves of the corresponding group.
+  - missing tempo indications are denoted as “[no tempo]”.
 - LilyPond snippets:
   - two violins colla parte with soprano and alto
   - alternative `\startDeleted` and `\stopDeleted` which use “vide” coda marks
@@ -33,15 +42,8 @@
   - alternative for vocal scores with two staves
   - alternative for five staves per page
 - information on how to include a snippet in the TOE
-- a script `make_collection.py` for creating collections of works, and its documentation
-- Editorial guidelines now clarify that
-  - in the org part, an alto clef in fugues is transcribed as treble ottavo.
-  - in the staff column of the TOE, an abbreviation like “vl” denotes all staves of the corresponding group.
-  - missing tempo indications are denoted as “[no tempo]”.
 - a hexlogo for EES tools
 - documentation for repositories of collected works
-- support for Archival Resource Keys
-- a class option `enlargefirstpage` to enlarge the first page of the critical report
 
 
 ### Changed
