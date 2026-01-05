@@ -289,19 +289,19 @@ TOC commands:
   `\aQuattro`|a 4
   `\arco`|arco
   `\bassi`|Bassi
-  `\colOrg`|col’Org.
+  `\colOrg`|col’org
   `\conSord`|con sordino
   `\dolce`|dolce
-  `\org`|Org.
+  `\org`|org
   `\pizz`|pizz.
-  `\senzaOrg`|senza Org.
+  `\senzaOrg`|senza org
   `\senzaSord`|senza sordino
   `\solo`|Solo
   `\tasto`|tasto solo
   `\tenuto`|ten.
   `\tutti`|Tutti
   `\unisono`|unisono
-  `\vlc`|Vlc.
+  `\vlc`|vlc
   `\vlne`|vlne
 
 - `\critnote`: print asterisk denoting an editorial emendation
