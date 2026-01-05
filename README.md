@@ -310,7 +310,7 @@ TOC commands:
 ### Inside the staff
 
 - `\twofourtime` and `\twotwotime` adjust automatic beaming in 2/4 and 2/2 time, respectively.
-- The following dynamics commands are redefined and supplemented by an editorial variant: `\fff` (plus `\fffE` etc), `\ff`, `\f`, `\mf`, `\mp`, `\p`, `\pp`, `\ppp`, `\sf`, `\sfp`, `\sfz`, `\fp`, `\fz`, `\rf`, `\rfz`, `\passai`, `\piuF`, `\piuP`, `\pocoF`, `\pocoP`, `\cresc`, and `\decresc`.
+- The following dynamics commands are redefined and supplemented by an editorial variant: `\fff` (plus `\fffE` etc), `\ff`, `\f`, `\mf`, `\mp`, `\p`, `\pp`, `\ppp`, `\sf`, `\sfp`, `\sfz`, `\fp`, `\fz`, `\fzp`, `\ffz`, `\rf`, `\rfz`, `\passai`, `\piuF`, `\piuP`, `\pocoF`, `\pocoP`, `\cresc`, `\decresc`, and `\perd`.
 - `\bp`: override beam positions
 - `\extraNat`: force accidental
 - `\hA`: hide accidental

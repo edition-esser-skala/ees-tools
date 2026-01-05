@@ -420,6 +420,10 @@ fp   = \dynScript "fp"  ##f
 fpE  = \dynScript "fp"  ##t
 fz   = \dynScript "fz"  ##f
 fzE  = \dynScript "fz"  ##t
+fzp  = \dynScript "fzp" ##f
+fzpE = \dynScript "fzp" ##t
+ffz  = \dynScript "ffz" ##f
+ffzE = \dynScript "ffz" ##t
 rf   = \dynScript "rf"  ##f
 rfE  = \dynScript "rf"  ##t
 rfz  = \dynScript "rfz" ##f
@@ -460,6 +464,17 @@ decrescE = #(make-music
   'span-direction START
   'span-type 'text
   'span-text (markup (#:normal-text #:small #:italic "decresc.")))
+
+perd = #(make-music
+  'DecrescendoEvent
+  'span-direction START
+  'span-type 'text
+  'span-text (markup (#:normal-text #:small "perd.")))
+perdE = #(make-music
+  'DecrescendoEvent
+  'span-direction START
+  'span-type 'text
+  'span-text (markup (#:normal-text #:small #:italic "perd.")))
 
 
 setGroupDistance = #(define-scheme-function
