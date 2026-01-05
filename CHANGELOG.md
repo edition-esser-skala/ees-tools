@@ -1,6 +1,67 @@
 # Changelog
 
-## 2023.10.0
+## v2026.01.0 – 2026-01-05
+
+### Added
+
+- macros:
+  - annotations: `\aDue`, `\aDueE`, `\aTre`, `\aTreE`, `\aQuattro`, `\aQuattroE`, `\vlne`, and `\vlneE`
+  - dynamics: `\ffz`, `\fzp`, and `\perd` (with editorial variants)
+  - `dotbf`, `dotbfflat`, `dotbfnatural`, and `dotbfsharp`, which print a dotted bass figure, including the respective accidental
+  - `\fC`, which forces the current clef to be printed
+  - `\fivehatflat` and `\fivehatnatural`, which are similar to `\fivehat` but add the respective accidentals
+  - `\hA`, which hides an accidental
+  - `\markCritnote`, which prints an asterisk above the system
+  - `\setSoloText` and `\setSoloIIText`, which set and format the solo(II) text for `\partCombine`
+  - `\skips`, which skips notes in lyrics
+  - `\tempoTitle` and `\tempoTitleMarkup`, which format inline section titles (with tempo indication)
+  - `\trillFlat`, `\trillNatural`, and `\trillSharp`, which print a trill with the respective accidental
+- LilyPond snippets:
+  - two violins colla parte with soprano and alto
+  - alternative `\startDeleted` and `\stopDeleted` which use “vide” coda marks
+- bash snippets:
+  - rename files with sequential numbers
+  - resize images to same width
+  - merge images horizontally
+  - reset image orientation to portrait or landscape
+  - extract even pages of a PDF
+  - download images via `iiif-download`
+- spacing recommendations:
+  - choral scores with three stanzas
+  - alternative for vocal scores with two staves
+  - alternative for five staves per page
+- information how to include a snippet in the TOE
+- a script `make_collection.py` for creating collections of works, and its documentation
+- Editorial guidelines now clarify that
+  - in the org part, an alto clef in fugues is transcribed as treble ottavo.
+  - in the staff column of the TOE, an abbreviation like “vl” denotes all staves of the corresponding group.
+- a hexlogo
+- documentation for repositories of collected works
+- support for Archival Resource Keys
+
+
+### Changed
+
+- improved documentation of incipits in special situations
+- extended IMSLP instructions (tagging, instrument names)
+- improved spacing recommendations for seven staves per page
+- stanza numbers now use the same font as lyrics
+- asterisk for critical notes is now a red star
+
+
+### Fixed
+
+- `markDaCapo` is now correctly displayed at stave breaks.
+- `add_variables.py` and `instrument_data.csv`: Violas and trombones now use the correct clefs.
+- The placeholder in `ly:create-toc-file` is now `G_` (necessary for compatibility with Guile 3.0).
+
+
+### Removed
+
+- `read_metadata.py`: subcommand `table`
+
+
+## v2023.10.0 – 2023-10-06
 
 ### Added
 
@@ -27,6 +88,7 @@
 - The copyright information now contains the place of publication and the statement that Edition Esser-Skala is a Selbstverlag according to the Gewerbeordnung.
 - `\org`, `\vlc`, `\bassi`, `\senzaOrg`, and `\colOrg` (as well as their corresponding editorial variants) now conform to the used abbreviations (e.g., `\org` prints “org” instead of “Org.”).
 - `ees-tools` now uses LilyPond v2.24.2 and TinyTeX v2023.10.
+- In the EES template, `manuscript` may now also be a symlink and still be ignored by git.
 
 
 ### Fixed
@@ -38,7 +100,7 @@
 
 
 
-## 2023.02.0
+## v2023.02.0 – 2023-02-14
 
 ### Added
 
@@ -52,7 +114,7 @@
 - The GitHub Actions workflow now also includes the MIDI archive in the release.
 
 
-## 2022.12.0
+## v2022.12.0 – 2023-01-14
 
 ### Breaking changes
 
@@ -114,7 +176,7 @@ None, but you may
 - the customized bass figure function `new-format-bass-figure`, since LilyPond 2.24.0 greatly improved typesetting of bass figures
 
 
-## 2022.01.0
+## v2022.01.0 – 2021-12-30
 
 ### Added
 
