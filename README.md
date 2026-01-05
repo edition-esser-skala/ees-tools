@@ -220,12 +220,16 @@ For convenience, these three commands for changing distances are predefined.
 - `\transposedTimpShort "<pitch-high>" "<acc-high>" "<pitch-low>" "<acc-low>"`
 - `make-one-pitch`
 - `make-timp-pitches`
+- `\setSoloText "<abbr>"`
+- `\setSoloIIText "<abbr>"`
 
-These commands print an instrument name including pitches. `\transposedName` and `\transposedTimp` should be used for the first movement, commands ending in `…Short` should be used for subsequent movements. For special cases, the Scheme functions `make-one-pitch` and `make-timp-pitches` are available.
+These commands print an instrument name including pitches. `\transposedName` and `\transposedTimp` should be used for the first movement, commands ending in `…Short` should be used for subsequent movements. For special cases, the Scheme functions `make-one-pitch` and `make-timp-pitches` are available. `\setSoloText` and `\setSoloIIText` set and format the solo texts for `\partCombine`.
 
 ```lilypond
 \new Staff {
   \set Staff.instrumentName = \transposedName "Clarino" "B" "flat"
+  \setSoloText "clno 1"
+  \setSoloIIText "clno 2"
   \Clarino
 }
 \new Staff {

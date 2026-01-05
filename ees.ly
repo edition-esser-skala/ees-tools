@@ -530,6 +530,19 @@ setStaffDistance = #(define-scheme-function
 
 smallStaffDistance = \setStaffDistance #12
 
+setSoloText = #(define-scheme-function
+  (parser location text)
+  (string?)
+  #{
+    \set Staff.soloText = \markup \medium \remark #text
+  #})
+
+setSoloIIText = #(define-scheme-function
+  (parser location text)
+  (string?)
+  #{
+    \set Staff.soloIIText = \markup \medium \remark #text
+  #})
 
 twofourtime = {
   \overrideTimeSignatureSettings
