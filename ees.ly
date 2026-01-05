@@ -732,6 +732,8 @@ tacet = #(define-scheme-function
   \context {
     \Lyrics
     \override LyricText.font-size = #-1
+    \override StanzaNumber.font-series = #'medium
+    \override StanzaNumber.font-size = #-1
     \override VerticalAxisGroup.nonstaff-unrelatedstaff-spacing.padding = #-100
   }
   \context {
