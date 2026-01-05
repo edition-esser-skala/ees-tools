@@ -572,6 +572,7 @@ pa = \partCombineApart
 pd = \partCombineAutomatic
 hairpinDashed = \override Hairpin.style = #'dashed-line
 hairpinSolid = \override Hairpin.style = #'solid
+fC = \set Staff.forceClef = ##t
 
 sbOn = {
   \set subdivideBeams = ##t
