@@ -1,13 +1,12 @@
 # Changelog
 
-## v2026.01.0 – 2026-01-05
+## v2026.01.0 – 2026-01-18
 
 ### Added
 
 - macros:
   - annotations: `\aDue`, `\aDueE`, `\aTre`, `\aTreE`, `\aQuattro`, `\aQuattroE`, `\vlne`, and `\vlneE`
   - dynamics: `\ffz`, `\fzp`, and `\perd` (with editorial variants)
-  - `dotbf`, `dotbfflat`, `dotbfnatural`, and `dotbfsharp`, which print a dotted bass figure, including the respective accidental
   - `\fC`, which forces the current clef to be printed
   - `\fivehatflat` and `\fivehatnatural`, which are similar to `\fivehat` but add the respective accidentals
   - `\hA`, which hides an accidental
@@ -17,6 +16,8 @@
   - `\skips`, which skips notes in lyrics
   - `\tempoTitle` and `\tempoTitleMarkup`, which format inline section titles (with tempo indication)
   - `\trillFlat`, `\trillNatural`, and `\trillSharp`, which print a trill with the respective accidental
+- scheme functions:
+  - `#(dotbf n)`, `#(dotbfflat n)`, `#(dotbfnatural n)`, and `#(dotbfsharp n)`, which print a dotted bass figure, including the respective accidental
 - LilyPond snippets:
   - two violins colla parte with soprano and alto
   - alternative `\startDeleted` and `\stopDeleted` which use “vide” coda marks
@@ -31,13 +32,13 @@
   - choral scores with three stanzas
   - alternative for vocal scores with two staves
   - alternative for five staves per page
-- information how to include a snippet in the TOE
+- information on how to include a snippet in the TOE
 - a script `make_collection.py` for creating collections of works, and its documentation
 - Editorial guidelines now clarify that
   - in the org part, an alto clef in fugues is transcribed as treble ottavo.
   - in the staff column of the TOE, an abbreviation like “vl” denotes all staves of the corresponding group.
-  - missing tempo indications are denoted as “[no tempo]”
-- a hexlogo
+  - missing tempo indications are denoted as “[no tempo]”.
+- a hexlogo for EES tools
 - documentation for repositories of collected works
 - support for Archival Resource Keys
 - a class option `enlargefirstpage` to enlarge the first page of the critical report
@@ -48,14 +49,16 @@
 - improved documentation of incipits in special situations
 - extended IMSLP instructions (tagging, instrument names)
 - improved spacing recommendations for seven staves per page
-- stanza numbers now use the same font as lyrics
-- asterisk for critical notes is now a red star
+- Stanza numbers now use the same font as lyrics.
+- The asterisk for critical notes is now a red star.
+- The company name in the imprint is now “Edition Esser-Skala e.U.”.
+- The engrave-and-release workflow now syncs PDFs to the website server. The workflow in ees-template has been updated accordingly.
 
 
 ### Fixed
 
-- `markDaCapo` is now correctly displayed at stave breaks.
-- `add_variables.py` and `instrument_data.csv`: Violas and trombones now use the correct clefs.
+- `\markDaCapo` is now correctly displayed at stave breaks.
+- In `add_variables.py` and `instrument_data.csv`, violas and trombones now use the correct clefs.
 - The placeholder in `ly:create-toc-file` is now `G_` (necessary for compatibility with Guile 3.0).
 
 
