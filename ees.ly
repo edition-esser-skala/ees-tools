@@ -354,7 +354,7 @@ dotbfsharp = #(define-scheme-function
       #:translate '(-.7 . .5) #:fontsize -5.5 #:sharp
     #:translate '(1.3 . .6) #:draw-circle .2 0 #t))
 
-critnote = \markup { \musicglyph #'"pedal.*" }
+critnote = \markup { \epsfile #X #1.35 #"critnote.eps" }
 trillE = \tweak self-alignment-X #CENTER ^\markup { \hspace #1.5 [ \musicglyph #'"scripts.trill" ] }
 trillFlat = \tweak self-alignment-X #CENTER ^\markup { { \teeny \raise #.5 \flat } \musicglyph #'"scripts.trill" }
 trillNatural = \tweak self-alignment-X #CENTER ^\markup { { \teeny \raise #1 \natural } \musicglyph #'"scripts.trill" }
@@ -601,7 +601,7 @@ parOff = {
 
 markCritnote = {
   \once \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
-  \mark \markup \normalsize \critnote
+  \mark \critnote
 }
 
 markDaCapo = {
