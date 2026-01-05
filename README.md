@@ -313,6 +313,7 @@ TOC commands:
 - The following dynamics commands are redefined and supplemented by an editorial variant: `\fff` (plus `\fffE` etc), `\ff`, `\f`, `\mf`, `\mp`, `\p`, `\pp`, `\ppp`, `\sf`, `\sfp`, `\sfz`, `\fp`, `\fz`, `\rf`, `\rfz`, `\passai`, `\piuF`, `\piuP`, `\pocoF`, `\pocoP`, `\cresc`, and `\decresc`.
 - `\bp`: override beam positions
 - `\extraNat`: force accidental
+- `\hA`: hide accidental
 - `\hairpinDashed` and `\hairpinSolid`: turn on/off dashed hairpins
 - `\hideTn`: hide a single tuplet number
 - `\kneeBeam` and `\noKneeBeam`: force/suppress kneed beams

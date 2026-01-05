@@ -302,6 +302,7 @@ fivehat = \markup { \combine \figured-bass 5 \path #.15 #'((rmoveto 0 1.2)
 critnote = \markup { \musicglyph #'"pedal.*" }
 trillE = \tweak self-alignment-X #CENTER ^\markup { \hspace #1.5 [ \musicglyph #'"scripts.trill" ] }
 extraNat = \once \override Accidental.restore-first = ##t
+hA = \once \override Accidental.stencil = ##f
 kneeBeam = \once \override Beam.auto-knee-gap = #0
 noKneeBeam = \once \override Beam.auto-knee-gap = #5.5
 rh = \change Staff = "RH"
