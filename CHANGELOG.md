@@ -40,6 +40,7 @@
 - a hexlogo
 - documentation for repositories of collected works
 - support for Archival Resource Keys
+- a class option `enlargefirstpage` to enlarge the first page of the critical report
 
 
 ### Changed

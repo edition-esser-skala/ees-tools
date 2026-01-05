@@ -165,7 +165,7 @@ Repositories for collected works (Werner, Tůma …) contain additional files an
 
 In the `metadata.yaml` file for each work, the `composer` key is optional. Moreover, the file supports additional keys:
 
-- `abbrwidth` and `tocstyle` (`none` or `default`) override the LaTeX class option of the same name.
+- `abbrwidth`, `enlargefirstpage`, and `tocstyle` (`none` or `default`) override the LaTeX class options of the same name.
 - `genre` and `festival` are printed as subtitle on the title page.
 - `toe` is passed to by `\eesCriticalReport`.
 - `commentary`, `lyrics`, and `acknowledgements` are glued together with appropriate headings and printed by `\eesCommentaryAfterToe`.
@@ -527,6 +527,7 @@ Type and default value in parentheses.
 
 - `abbrwidth` (length, 3em): width of the first column in the list of abbreviations
 - `changelog` (Boolean, true): print the changelog (i.e., include *CHANGELOG.md*)
+- `enlargefirstpage` (Boolean, false): enlarge the first page of the critical report
 - `shortnamesize` (number, 80): font size for the composer name in the title page head
 - `shorttitlesize` (number, 60): font size for the work title in the title page head
 - `tocdir` (string, `../tmp`): directory where LilyPond saves the TOC file

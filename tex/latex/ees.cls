@@ -21,6 +21,7 @@
 \DeclareStringOption[60]{shorttitlesize}
 \DeclareStringOption[../tmp]{tocdir}
 \DeclareStringOption[default]{tocstyle}
+\DeclareBoolOption[false]{enlargefirstpage}
 \DeclareBoolOption[true]{toe}
 
 \def\ees@tocstyle@none{none}
@@ -529,6 +530,7 @@
 \def\eesCriticalReport#1{%
   \ifPrintFrontMatter%
     \chapter{Critical Report}%
+      \ifees@enlargefirstpage\enlargethispage{5cm}\fi%
       \section{Abbreviations}%
         \MetadataAbbreviations%
       \section{Sources}%
