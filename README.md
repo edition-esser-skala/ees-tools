@@ -32,6 +32,7 @@
   - [Metadata](#metadata)
   - [Document structure](#document-structure)
   - [Manual TOC](#manual-toc)
+  - [Snippets](#snippets)
 - [.github/workflows/engrave-and-release.yaml](#githubworkflowsengrave-and-releaseyaml)
 - [documents/*](#documents)
 - [utils/*](#utils)
@@ -552,6 +553,47 @@ The value of any additional metadata `<key>` can be retrieved via `\Metadata<Key
 - `\begin{movement}{<label>} <lyrics> \end{movement}`: Print the TOC entry (section level) for the movement with `<label>`. The `<lyrics>` may comprise
   - continuous text, which represents all lyrics of the respective movement (as seen, for instance, in Michael Haydn's [Litaniæ MH 532](https://github.com/edition-esser-skala/haydn-m-litaniae-mh-532)); or
   - text blocks labeled with the associated voice (as seen, for instance, in Stölzel's [Jeſu, Deine Paßion](https://github.com/edition-esser-skala/stoelzel-jesu-deine-passion)). `\voice[<label>]` sets the `<label>` of each text block.
+
+
+### Snippets
+
+The table of emendations may contain snippets. For each snippet, a LilyPond file should be created in `front_matter`. For instance, `snippet_1.ly` in Eybler's *Missa Sancti Wolfgangi* (HerEy 11) contains
+
+```lilypond
+\version "2.24.2"
+
+\include "ees.ly"
+#(set-global-staff-size 11.22)
+\paper { oddHeaderMarkup = ##f }
+
+\relative c {
+  \clef bass
+  \key d \major \time 4/4
+  b'4( e, g cis,!)
+  e( b cis! g)
+  b( e, g b)
+  cis!( e g cis,)
+}
+```
+
+This snippet is then rendered to PDF via
+
+```bash
+lilypond --include=$EES_TOOLS_PATH -dno-point-and-click snippet_1.ly
+pdfcrop --margins "0 5 0 0" snippet_1.pdf snippet_1.pdf
+```
+
+and included in the table:
+
+```latex
+3 & 161–164 & – & In \A1, these bars have been heavily edited in the org
+                  and vlne staff: The initial version (\B1, and thus likely
+                  \A1a) was\newline
+                  \includegraphics{snippet_1.pdf}\newline
+                  The second version was\newline
+                  \includegraphics{snippet_2.pdf}\newline
+                  The third version (entered in the T~staff) is reproduced
+```
 
 
 ## .github/workflows/engrave-and-release.yaml
