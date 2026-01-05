@@ -70,14 +70,6 @@ LICENSE_HEADINGS = {
     "cc-by-nc-sa-4.0": "Attribution-NonCommercial-ShareAlike 4.0 International"
 }
 
-# subfolders ignored when preparing the table
-IGNORED_COMPOSER_DIRS = ["Misc", "TODO"]
-
-# metadata keys that are excluded from the generated table
-INCLUDED_COLUMNS = ["composer_last", "composer_suffix", "composer_first",
-                    "title", "id", "genre", "scoring", "sources", "imslp",
-                    "repository", "version", "date", "folder", "notes"]
-
 
 # LaTeX templates ---------------------------------------------------------
 
@@ -92,6 +84,7 @@ METADATA_TEMPLATE = """
 \\def\\MetadataScoretype{{{score_type}}}
 \\def\\MetadataLicense{{{license}}}
 \\def\\MetadataRepository{{{repository}}}
+\\def\\MetadataArk{{{ark}}}
 \\def\\MetadataVersion{{{version}}}
 \\def\\MetadataDate{{{date}}}
 \\def\\MetadataChecksum{{{checksum}}}
@@ -264,6 +257,13 @@ def parse_metadata(file=None,
     # in $EES_TOOLS_PATH.
 
     metadata["eestools_version"] = Repo(EES_TOOLS_PATH).tags[-1].name
+
+    ## Archival Resource key
+    # Unless this is the full score, append the instrument abbreviation.
+    if "ark" not in metadata:
+        error_exit("ERROR: No ARK specified.")
+    if score_type != "full_score":
+        metadata["ark"] = metadata["ark"] + "/" + score_type
 
     ## QR Code
     # It will contain a link to the PDF in the current release.

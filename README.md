@@ -480,6 +480,7 @@ This file describes metadata for each work and comprises the following keys:
 - `title` (required): Work title (-> `\MetadataTitle`).
 - `subtitle` (optional): Work subtitle. The subtitle is combined with the work identifier and stored in `\MetadataSubtitle`. If this key is missing, the work identifier is used alone.
 - `id` (optional): Work identifier (typically, the catalogue of works number). If this key is missing, the RISM library siglum and shelfmark of the principal source are used.
+- `ark` (required): Archival Resource Key.
 - `genre` (required): Work genre (only used on the webpage).
 - `scoring` (required): Scoring of the work (-> `\MetadataScoring`). See the editorial guidelines for the scoring syntax. The list of abbreviations in the critical report is also assembled from the scoring information (-> `\MetadataAbbreviations`)
 - `editor` (optional): Editor of the work (default: Wolfgang Esser-Skala; -> `\MetadataEditor`).

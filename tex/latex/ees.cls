@@ -419,6 +419,7 @@
 \def\license#1{\def\@license{#1}}
 \def\scoretype#1{\def\@scoretype{#1}}
 \def\repository#1{\def\@repository{#1}}
+\def\ark#1{\def\@ark{#1}}
 \def\version#1{\def\@version{#1}}
 \def\date#1{\DTMsavedate{tagdate}{#1}}
 \def\checksum#1{\def\@checksum{#1}}
@@ -440,6 +441,7 @@
 \providecommand\MetadataLicense{cc-by-sa-4.0}
 \providecommand\MetadataScoretype{\relax}
 \providecommand\MetadataRepository{\relax}
+\providecommand\MetadataArk{\relax}
 \providecommand\MetadataVersion{\relax}
 \providecommand\MetadataDate{2021-01-01}
 \providecommand\MetadataChecksum{\relax}
@@ -463,6 +465,7 @@
 \license{\MetadataLicense}
 \scoretype{\MetadataScoretype}
 \repository{\MetadataRepository}
+\ark{\MetadataArk}
 \version{\MetadataVersion}
 \date{\MetadataDate}
 \checksum{\MetadataChecksum}
@@ -511,9 +514,10 @@
   © \DTMfetchyear{tagdate} by Edition Esser-Skala e.U. \ees@license@statement
 
   Music engraving by LilyPond \MetadataLilypondVersion~(\url{https://www.lilypond.org}) and EES Tools \MetadataEESToolsVersion.\\
-  Front matter typeset with Source Sans and Fredericka the Great.
+  Front matter typeset with Source Sans and Fredericka the Great.\\
+  Please report any errors or mistakes to \url{edition@esser-skala.at}.
 
-  Please report any errors or mistakes to \url{edition@esser-skala.at.}
+  Archival Resource Key: \textsb{\href{https://n2t.net/ark:\@ark}{\url{ark:\@ark}}}
 
   \faGithub~\href{https://github.com/\@repository}{\@repository}\\
   \textit{\@version, \DTMusedate{tagdate} (\@checksum)}%
