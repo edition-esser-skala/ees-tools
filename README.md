@@ -344,6 +344,10 @@ TOC commands:
 ### Bass figures
 
 - `\bo` and `\bc`: only print the left/right bass figure bracket
+- `#(dotbf n)`: print a dotted bass figure `n` (slashed figures like `5\\` must be written as string)
+- `#(dotbfflat n)`: … including a flat
+- `#(dotbfnatural n)`: … including a natural
+- `#(dotbfsharp n)`: … including a sharp
 - `\l`: empty space instead of figure; works like `_` introduced in LilyPond 2.24.0, but yields centered extenders
 - `\t`: horizontal dash instead of figure
 - `\tllur`: dash from lower left to upper right instead of figure

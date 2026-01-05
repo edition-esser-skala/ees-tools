@@ -301,6 +301,40 @@ fivehat = \markup { \combine \figured-bass 5 \path #.15 #'((rmoveto 0 1.2)
 fivehatflat = \markup { \concat { \combine \figured-bass 5 \path #.15 #'((rmoveto 0 1.2) (rlineto .5 .5) (rlineto .5 -.5)) \raise #.3 \fontsize #-5 \flat } }
 fivehatnatural = \markup { \concat { \raise #.3 \fontsize #-5 \natural \combine \figured-bass 5 \path #.15 #'((rmoveto 0 1.2) (rlineto .5 .5) (rlineto .5 -.5)) } }
 
+dotbf = #(define-scheme-function
+  (bf)
+  (number-or-string?)
+  (markup #:combine
+    #:figured-bass (if (number? bf) (number->string bf) bf)
+    #:translate '(1.3 . .6) #:draw-circle .2 0 #t))
+
+dotbfflat = #(define-scheme-function
+  (bf)
+  (number-or-string?)
+  (markup #:combine
+    #:combine
+      #:figured-bass (if (number? bf) (number->string bf) bf)
+      #:translate '(-.575 . .3) #:fontsize -5.5 #:flat
+    #:translate '(1.3 . .6) #:draw-circle .2 0 #t))
+
+dotbfnatural = #(define-scheme-function
+  (bf)
+  (number-or-string?)
+  (markup #:combine
+    #:combine
+      #:figured-bass (if (number? bf) (number->string bf) bf)
+      #:translate '(-.575 . .5) #:fontsize -5.5 #:natural
+    #:translate '(1.3 . .6) #:draw-circle .2 0 #t))
+
+dotbfsharp = #(define-scheme-function
+  (bf)
+  (number-or-string?)
+  (markup #:combine
+    #:combine
+      #:figured-bass (if (number? bf) (number->string bf) bf)
+      #:translate '(-.7 . .5) #:fontsize -5.5 #:sharp
+    #:translate '(1.3 . .6) #:draw-circle .2 0 #t))
+
 critnote = \markup { \musicglyph #'"pedal.*" }
 trillE = \tweak self-alignment-X #CENTER ^\markup { \hspace #1.5 [ \musicglyph #'"scripts.trill" ] }
 trillFlat = \tweak self-alignment-X #CENTER ^\markup { { \teeny \raise #.5 \flat } \musicglyph #'"scripts.trill" }
