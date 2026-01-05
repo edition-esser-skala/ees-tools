@@ -36,6 +36,7 @@
 - Editorial guidelines now clarify that
   - in the org part, an alto clef in fugues is transcribed as treble ottavo.
   - in the staff column of the TOE, an abbreviation like “vl” denotes all staves of the corresponding group.
+  - missing tempo indications are denoted as “[no tempo]”
 - a hexlogo
 - documentation for repositories of collected works
 - support for Archival Resource Keys

@@ -199,7 +199,7 @@ The original key signature is retained, while the order and position of sharps a
 
 ### Tempo indications and movement designations
 
-Tempo indications appear in the original language; inconsistent spelling is regularized. Only the first word of Italian terms is capitalized (e.g., “Poco andante”). Movement designations may be retained in the original language (“Chor”) or translated to Italian (“Coro”).
+Tempo indications appear in the original language; inconsistent spelling is regularized. Only the first word of Italian terms is capitalized (e.g., “Poco andante”). Movement designations may be retained in the original language (“Chor”) or translated to Italian (“Coro”). A missing tempo indication is denoted as “[no tempo]”.
 
 Individual movements are numbered by the editor if numbers are absent in the source.
 
