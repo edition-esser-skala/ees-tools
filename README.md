@@ -10,6 +10,7 @@
   - [… using the Docker image](#-using-the-docker-image)
   - [… using a manual installation](#-using-a-manual-installation)
 - [Structure of a score repository](#structure-of-a-score-repository)
+  - [Collected works](#collected-works)
 - [ees.ly](#eesly)
   - [Options](#options)
   - [Score settings](#score-settings)
@@ -143,6 +144,27 @@ The new repository will contain the following folders and files:
 - **front_matter/critical_report.tex** – prefatory material based upon [ees.cls](#texlatexeescls)
 
 
+### Collected works
+
+Repositories for collected works (Werner, Tůma …) contain additional files and folders:
+- **front_matter**:
+  - **general_preface.tex** – a general preface describing the project
+  - **cover_general_preface.pdf/svg** – cover for the preface
+- **scores/full_score.ly** – only a placeholder
+- **works** – contains the source files for each work in a subfolder
+- **definitions_main.ly** – main definitions
+- **ignored_works** – works that should not be engraved to PDF; lines starting with `#` are comments
+- **Makefile** – only calls Python with the script below
+- **make.py** – assembles a makefile from the contents of `works`, also taking ignored works into account; see `make info` for additional targets
+
+In the **metadata.yaml** file for each work, the `composer` key is optional. Moreover, the file supports additional keys:
+- `commentary`
+- `lyrics`
+- `acknowledgements`: Values of these three keys are glued together with appropriate headings and printed by `\eesCommentaryAfterToe`.
+- `festival`
+- `genre`: Values of these two keys are printed on the title page.
+- `tocstyle`: Values `none` and `default` override the class option.
+- `toe`: Value is printed by `\eesCriticalReport`.
 
 ## ees.ly
 
