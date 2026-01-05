@@ -179,8 +179,7 @@ In recitatives, instrumental parts also contain the solo vocal part. This conven
 
 ### Clefs
 
-Keyboard music in soprano clef is notated in treble clef. Vocal music in soprano or alto clef is changed to
-treble clef; the tenor clef is changed to treble ottavo. Other clefs (e.g., alto for viola parts) are generally not altered. In the first movement, the original clef is given as incipit.
+Keyboard music in soprano clef is notated in treble clef. Vocal music in soprano or alto clef is changed to treble clef; the tenor clef is changed to treble ottavo. Other clefs (e.g., alto for viola parts) are generally not altered. However, in the organ part of fugues, an alto clef that marks a section colla parte with alto plus tenor is changed to treble ottavo. In the first movement, the original clef is given as incipit.
 
 
 ### Key signatures
