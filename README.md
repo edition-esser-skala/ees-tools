@@ -284,6 +284,9 @@ TOC commands:
 
   Command|Printed text
   --|--
+  `\aDue`|a 2
+  `\aTre`|a 3
+  `\aQuattro`|a 4
   `\arco`|arco
   `\bassi`|Bassi
   `\colOrg`|col’Org.
@@ -299,6 +302,7 @@ TOC commands:
   `\tutti`|Tutti
   `\unisono`|unisono
   `\vlc`|Vlc.
+  `\vlne`|vlne
 
 - `\critnote`: print asterisk denoting an editorial emendation
 - `\mvTr`: move text 2 staff spaces to the right
