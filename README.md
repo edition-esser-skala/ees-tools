@@ -351,6 +351,10 @@ TOC commands:
 - `\fivehatnatural`: the figure 5 with a hat and a natural accidental
 
 
+### Lyrics
+
+- `\skips <n>`: skip `<n>` notes
+
 
 ## ees.mk
 

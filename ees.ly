@@ -322,6 +322,10 @@ bp = #(define-music-function
   (number? number?)
   #{ \once \override Beam.positions = #(cons beg end) #})
 
+skips = #(define-music-function
+  (parser location n)
+  (number?)
+  #{ \repeat unfold #n { \skip 8 } #})
 
 dynScript = #(define-scheme-function
   (parser location sym extra?)
