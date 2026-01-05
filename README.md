@@ -325,6 +325,9 @@ TOC commands:
 - `\sbOn` and `\sbOff`: turn on/off subdivided beams
 - `\scriptOut`: force script (like `-|`) to be printed outside of slur
 - `\trillE`: editorial (parenthesized) trill
+- `\trillFlat`: trill with flat
+- `\trillNatural`: trill with natural
+- `\trillSharp`: trill with sharp
 - `\whOn` and `\whOff`: switch on/off white (void) notation
 - `\xE` and `\x`: turn on/off editorial (italic) lyrics
 

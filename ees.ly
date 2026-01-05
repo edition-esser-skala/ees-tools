@@ -303,6 +303,9 @@ fivehatnatural = \markup { \concat { \raise #.3 \fontsize #-5 \natural \combine 
 
 critnote = \markup { \musicglyph #'"pedal.*" }
 trillE = \tweak self-alignment-X #CENTER ^\markup { \hspace #1.5 [ \musicglyph #'"scripts.trill" ] }
+trillFlat = \tweak self-alignment-X #CENTER ^\markup { { \teeny \raise #.5 \flat } \musicglyph #'"scripts.trill" }
+trillNatural = \tweak self-alignment-X #CENTER ^\markup { { \teeny \raise #1 \natural } \musicglyph #'"scripts.trill" }
+trillSharp = \tweak self-alignment-X #CENTER ^\markup { { \teeny \raise #1 \sharp } \musicglyph #'"scripts.trill" }
 extraNat = \once \override Accidental.restore-first = ##t
 hA = \once \override Accidental.stencil = ##f
 kneeBeam = \once \override Beam.auto-knee-gap = #0
