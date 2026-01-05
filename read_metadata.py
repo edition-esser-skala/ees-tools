@@ -431,49 +431,6 @@ def prepare_edition(args):
         f.writelines(macros_scores)
 
 
-def format_table_sources(sources):
-    """Formats edition sources for display in a table."""
-    res = []
-    for source_id, details in sources.items():
-        if "principal" in details and details["principal"]:
-            p = ", principal"
-        else:
-            p = ""
-        res.append(f"{source_id} ({details['siglum']} "
-                   f"{details['shelfmark']}{p})")
-    return "".join(res)
-
-
-def prepare_table(args):
-    """Collects metadata for a table."""
-    # read metadata files
-    works = []
-    for composer_dir in os.listdir(args.root_directory):
-        full_composer_dir = os.path.join(args.root_directory, composer_dir)
-        if (not os.path.isdir(full_composer_dir) or
-            composer_dir in IGNORED_COMPOSER_DIRS):
-            continue
-        for work_dir in os.listdir(full_composer_dir):
-            full_work_dir = os.path.join(full_composer_dir, work_dir)
-            if not os.path.isdir(full_work_dir):
-                continue
-            try:
-                f = os.path.join(full_work_dir, "metadata.yaml")
-                metadata = parse_metadata(file=f, check_license=False)
-            except FileNotFoundError:
-                print("WARNING: No metadata found in", full_work_dir)
-                continue
-            metadata["folder"] = full_work_dir
-            metadata["sources"] = format_table_sources(metadata["sources"])
-            works.append(metadata)
-
-
-    # normalize and save as CSV
-    df = (json_normalize(works, sep="_")
-          .sort_values(["composer_last", "title"]))
-    df[INCLUDED_COLUMNS].to_csv(args.output, index=False)
-
-
 
 # Parse arguments ---------------------------------------------------------
 
@@ -548,25 +505,6 @@ if __name__ == "__main__":
         metavar="URL"
     )
     parser_edition.set_defaults(func=prepare_edition)
-
-    parser_table = subparsers.add_parser("table")
-    parser_table.add_argument(
-        "-d",
-        "--root-directory",
-        default=".",
-        help="""read metadata from all repositories in ROOT,
-                assuming the folder structure root -> composer -> repository
-                (default: current folder)""",
-        metavar="ROOT"
-    )
-    parser_table.add_argument(
-        "-o",
-        "--output",
-        default="works.csv",
-        help="write the table to FILE (default: 'works.csv')",
-        metavar="FILE"
-    )
-    parser_table.set_defaults(func=prepare_table)
 
     parsed_args = parser.parse_args()
     parsed_args.func(parsed_args)

@@ -21,13 +21,12 @@
   - [Inside the staff](#inside-the-staff)
   - [Polyphony](#polyphony)
   - [Bass figures](#bass-figures)
+  - [Lyrics](#lyrics)
 - [ees.mk](#eesmk)
   - [parse_logs.py](#parse_logspy)
 - [ees_articulate.ly](#ees_articulately)
 - [instrument_data.csv](#instrument_datacsv)
 - [read_metadata.py](#read_metadatapy)
-  - [Subcommand `edition`](#subcommand-edition)
-  - [Subcommand `table`](#subcommand-table)
   - [metadata.yaml](#metadatayaml)
 - [tex/latex/ees.cls](#texlatexeescls)
   - [Class options](#class-options)
@@ -39,8 +38,10 @@
 - [documents/*](#documents)
 - [utils/*](#utils)
 - [Appendix](#appendix)
-  - [Useful LilyPond snippets](#useful-lilypond-snippets)
+  - [LilyPond snippets](#lilypond-snippets)
   - [Spacing recommendations](#spacing-recommendations)
+  - [Bash snippets](#bash-snippets)
+  - [How to create a new EES Tools release](#how-to-create-a-new-ees-tools-release)
 
 
 
@@ -406,11 +407,7 @@ This table describes instruments (rows) via the following variables (columns):
 
 ## read_metadata.py
 
-This script creates various outputs from information in `metadata.yaml`, depending on the subcommand given as first argument.
-
-### Subcommand `edition`
-
-Generate a set of LaTeX macros that can be imported by `front_matter/critical_report.tex`. Each of these LaTeX macros starts with `\Metadata...`. The mapping between YAML keys and macros is described below.
+This script creates various outputs from information in `metadata.yaml`, depending on the subcommand given as first argument. Currently, only the subcommand `edition` is implemented. It generates a set of LaTeX macros that can be imported by `front_matter/critical_report.tex`. Each of these LaTeX macros starts with `\Metadata...`. The mapping between YAML keys and macros is described below.
 
 - `-h`, `--help`: show this help message and exit
 - `-i`, `--input FILE`: read metadata from `FILE` (default: `metadata.yaml`)
@@ -444,16 +441,6 @@ The subcommand also obtains the following information from the git metadata:
 - a link to the score PDF in the current release, represented as a QR code made by PGF macros (-> `\MetadataQRCode`)
 
 Furthermore, the subcommand reads the LilyPond version from the output of `lilypond --version` (-> `\MetadataLilypondVersion`) and the EES Tools version from the most recent tag of the repository in `$EES_TOOLS_PATH` (-> `\MetadataEESToolsVersion`).
-
-
-### Subcommand `table`
-
-Collect metadata from several repositories and save it as a table. The subcommand requires a folder structure like root -> composer -> work.
-
-- `-h`, `--help`: show this help message and exit
-- `-d`, `--root-directory ROOT`: read metadata from all repositories in `ROOT`, assuming the folder structure root -> composer -> repository (default: current folder)
-- `-o`, `--output FILE`: write the table to `FILE` (default: `works.csv`)
-
 
 
 ### metadata.yaml
@@ -655,7 +642,7 @@ This folder contains miscellaneous scripts:
 
 ## Appendix
 
-### Useful LilyPond snippets
+### LilyPond snippets
 
 Increase length of multi measure rest.
 
@@ -917,7 +904,7 @@ and apply these to the choir staff in the full and vocal score, respectively. In
 In **accompagnatos**, parts comprise up to 5 staves per page by default. The number of staves may be increased to six per page if system-system spacing is 16 and the choir staff uses `\smallGroupDistance`.
 
 
-### Useful bash snippets
+### Bash snippets
 
 Extract individual images from a PDF. (The origin lies in the top left corner.)
 
