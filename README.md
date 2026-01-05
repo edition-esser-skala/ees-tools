@@ -823,6 +823,8 @@ For full scores with **eight staves** (e.g., horns, Vienna church trio and four-
 }
 ```
 
+These settings can also be used for scores with *five staves* if three systems per age are printed.
+
 For full scores with **seven staves** (e.g., Vienna church trio and four-part choir), the following settings usually allow to print two systems per page:
 
 ```lilypond
