@@ -510,6 +510,7 @@ parOff = {
 
 markDaCapo = {
   \once \override Score.RehearsalMark.self-alignment-X = #RIGHT
+  \once \override Score.RehearsalMark.break-visibility = ##(#t #t #f)
   \mark \markup \remark "da capo"
 }
 
