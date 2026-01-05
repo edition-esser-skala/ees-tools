@@ -715,6 +715,20 @@ stopDeleted = {
 }
 ```
 
+Mark deleted parts of a score by “vide” coda marks.
+
+```lilypond
+startDeleted = {
+  \once \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
+  \mark \markup { \hspace #3.5 \musicglyph "scripts.coda" \remark "vi -" }
+}
+
+stopDeleted = {
+  \once \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
+  \mark \markup { \remark "- de" \musicglyph "scripts.coda" \hspace #3.9 }
+}
+```
+
 Make a multirow short instrument name.
 
 ```lilypond
