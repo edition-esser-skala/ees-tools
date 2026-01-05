@@ -317,6 +317,7 @@ TOC commands:
 - `\hairpinDashed` and `\hairpinSolid`: turn on/off dashed hairpins
 - `\hideTn`: hide a single tuplet number
 - `\kneeBeam` and `\noKneeBeam`: force/suppress kneed beams
+- `\markCritnote`: print an asterisk above the system
 - `\markDaCapo`: print “da capo” right aligned above a bar line
 - `\markTimeSig #'(n d)`: add a parenthesized time signature mark `n/d` above a bar line to indicate a different bar length
 - `\mvDl`: move dynamic mark 2 staff spaces to the left

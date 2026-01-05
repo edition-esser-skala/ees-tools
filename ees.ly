@@ -518,6 +518,11 @@ parOff = {
       (list left-par (cadr par-list))))
 }
 
+markCritnote = {
+  \once \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
+  \mark \markup \normalsize \critnote
+}
+
 markDaCapo = {
   \once \override Score.RehearsalMark.self-alignment-X = #RIGHT
   \once \override Score.RehearsalMark.break-visibility = ##(#t #t #f)
