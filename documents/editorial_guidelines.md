@@ -121,6 +121,7 @@ The following conventions apply to the commentary:
 - Chords are spelled with a plus sign between pitches from lowest to highest pitch (e.g., “c′+e′+g′4”).
 - Modern English instrument names are used.
 - Foreign words are typeset italic.
+- In the staff column, instrument abbreviations like “vl” always denote all staves in the respective group (here, both vl 1 and vl 2 staves).
 
 
 
