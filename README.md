@@ -309,6 +309,8 @@ TOC commands:
 - `\mvTrh`: move text 2.5 staff spaces to the right
 - `\mvTrr`: move text 3 staff spaces to the right
 - `\tempoMarkup "<tempo>"`: format the tempo indication
+- `\tempoTitle "<title>"`: format an inline title (italics)
+- `\tempoTitleMarkup "<title>" "<markup>"`: format an inline title with tempo indication
 
 
 ### Inside the staff

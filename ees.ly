@@ -249,6 +249,17 @@ tempoMarkup = #(define-music-function
   (markup?)
   #{ \tempo \markup \medium { \larger \larger #arg } #})
 
+tempoTitle = #(define-music-function
+  (parser location title)
+  (string?)
+  #{ \tempo \markup \medium { \larger \larger \italic #title } #})
+
+tempoTitleMarkup = #(define-music-function
+  (parser location title tempo)
+  (string? string?)
+  #{ \tempo \markup \medium { \larger \larger { \italic #title "·" #tempo } } #})
+
+
 #(define-markup-command
   (remark layout props text)
   (markup?)
