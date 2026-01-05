@@ -298,6 +298,8 @@ l = \markup { \hspace #-0.9 \transparent \figured-bass 0 }
 tllur = \markup { \combine \transparent \figured-bass 0 \raise #.1 \draw-line #'(1 . 1) }
 fivehat = \markup { \combine \figured-bass 5 \path #.15 #'((rmoveto 0 1.2)
 (rlineto .5 .5) (rlineto .5 -.5)) }
+fivehatflat = \markup { \concat { \combine \figured-bass 5 \path #.15 #'((rmoveto 0 1.2) (rlineto .5 .5) (rlineto .5 -.5)) \raise #.3 \fontsize #-5 \flat } }
+fivehatnatural = \markup { \concat { \raise #.3 \fontsize #-5 \natural \combine \figured-bass 5 \path #.15 #'((rmoveto 0 1.2) (rlineto .5 .5) (rlineto .5 -.5)) } }
 
 critnote = \markup { \musicglyph #'"pedal.*" }
 trillE = \tweak self-alignment-X #CENTER ^\markup { \hspace #1.5 [ \musicglyph #'"scripts.trill" ] }

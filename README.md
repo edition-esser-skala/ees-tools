@@ -344,6 +344,8 @@ TOC commands:
 - `\t`: horizontal dash instead of figure
 - `\tllur`: dash from lower left to upper right instead of figure
 - `\fivehat`: the figure 5 with a hat, indicating a diminished fifth
+- `\fivehatflat`: the figure 5 with a hat and a flat accidental
+- `\fivehatnatural`: the figure 5 with a hat and a natural accidental
 
 
 
