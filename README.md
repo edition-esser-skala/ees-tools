@@ -6,8 +6,6 @@
 
 ## Contents
 
-
-
 - [TL;DR: Engraving scores](#tldr-engraving-scores)
   - [… using the Docker image](#-using-the-docker-image)
   - [… using a manual installation](#-using-a-manual-installation)
@@ -131,6 +129,8 @@ gh repo create edition-esser-skala/<repository> \
 
 The new repository will contain the following folders and files:
 - **notes/*.ly** – LilyPond files containing individual voices; add new variables with [add_variables.py](#add_variablespy)
+- **print** (optional) – metadata and cover for the printed edition
+  - *printer.yaml* – contains keys `printer` (currently always `KDP` for Kindle Direct Publishing) and `asin` (Amazon Standard Identification Number)
 - **scores/*.ly** – LilyPond files containing score definitions
 - **.gitignore** – excludes irrelevant files from the repository
 - **CHANGELOG.md** – the [changelog](https://keepachangelog.com/en/1.0.0/)
