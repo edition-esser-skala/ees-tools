@@ -39,6 +39,7 @@ Prefatory material comprises the [title and copyright page](#title-page). In add
 ### Title page
 
 The *title page* (p. i) includes the following information:
+
 - a header with the composer's last name and the (possibly abbreviated) work title
 - the composer's full name (last name printed in red)
 - the title of the work (bold)
@@ -49,6 +50,7 @@ The *title page* (p. i) includes the following information:
 - the full logo of the Edition Esser-Skala
 
 The *scoring* lists all vocal parts and instruments:
+
 - Individual instruments are separated by commas (e.g., “S, vla, org”).
 - An Arabic numeral prefix indicates the number of each instrument (e.g., “2 vl”).
 - The pitch of transposing instruments is given in parentheses (e.g., “timp (C–G)”).
@@ -56,6 +58,7 @@ The *scoring* lists all vocal parts and instruments:
 - Instruments that are not available in all sources or have been added by the editor are surrounded by brackets (e.g., “[2 fl]”).
 
 The *copyright page* (p. ii) includes:
+
 - the copyright statement (typically, the CC BY-SA 4.0 or CC BY-NC-SA 4.0 license)
 - an indication of used software and fonts
 - contact details (email address)
@@ -78,6 +81,7 @@ This section contains a table of used abbreviations. Instruments are abbreviated
 #### Sources
 
 This section describes the used sources of a given work. Each source is labeled with a bold capital letter (indicating the source category) followed by an index number:
+
 - **A**: autograph manuscripts
 - **B**: other manuscripts used for the edition
 - **C**: prints used for the edition
@@ -87,6 +91,7 @@ This section describes the used sources of a given work. Each source is labeled 
 Within each category, sources are labeled in order of importance. Notably, categories D and E are applied if the sources are only available under incompatible licenses (e.g., CC BY-SA 4.0 and CC BY-NC-SA 4.0).
 
 For each source, the following information is included:
+
 - RISM library siglum and shelfmark
 - source category
 - indication whether this source represents the principal source
@@ -107,12 +112,14 @@ Each edition is based upon a single principal source, which is explicitly identi
 However, the following elements are *tacitly* modernized or standardized (see section [Conventions of notation](#conventions-of-notation) for details): Tempo indications, instrument names, clefs, accidentals, beaming and stem directions, rests, placement of dynamics/slurs/ties, treatment of shorthand notations, bar numbering, bar lines, and repeats.
 
 The table of emendations comprises the following columns:
+
 - movement (only if there are several movements in the work)
 - bar number
 - staff
 - description
 
 The following conventions apply to the commentary:
+
 - Keys are given with a capital letter for major or minor keys (e.g., “C minor”). Sharp and flat are spelled out with a hyphen (e.g., “B-flat major”).
 - Notes are counted by ordinal numbers and written as symbol (e.g., “1st ♩”).
 - Helmholtz pitch notation is applied, with symbols for sharp, flat, and natural signs, and order name–accidental–octave (e.g., “c#′”).
@@ -143,6 +150,7 @@ The table of contents list all individual movements with their number, title, an
 ### Score design
 
 The *score order* from top to bottom is:
+
 - woodwind instruments
   - flutes
   - cornetts
@@ -169,6 +177,7 @@ The *score order* from top to bottom is:
 
 Families of instruments are barred and bracketed together. Voice parts are bracketed but barred separately. The continuo is bracketed. Pairs of instruments are either set in braces (e.g., violin I and II) or share one staff
 with automatic part combining. In the latter case,
+
 - polyphony may be indicated by opposing stems;
 - the first and second parts get marked with their instrument abbreviations in solo situations; and
 - the unison (a due) parts are marked with the text “a 2”.

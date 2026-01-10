@@ -69,21 +69,25 @@ docker run --rm -it -u engraver -v $PWD:/ees ees-tools make info
 ### … using a manual installation
 
 Install the following dependencies:
-- [Python](https://python.org/) v3.11 with packages [GitPython](https://github.com/gitpython-developers/GitPython), [numpy](https://numpy.org/), [pandas](https://pandas.pydata.org/), [segno](https://segno.readthedocs.io/), [strictyaml](https://hitchdev.com/strictyaml/), [termcolor](https://pypi.org/project/termcolor/), and [texoutparse](https://github.com/inakleinbottle/texoutparse).
+
+- [Python](https://python.org/) v3.14 with packages [GitPython](https://github.com/gitpython-developers/GitPython), [numpy](https://numpy.org/), [pandas](https://pandas.pydata.org/), [segno](https://segno.readthedocs.io/), [strictyaml](https://hitchdev.com/strictyaml/), [termcolor](https://pypi.org/project/termcolor/), and [texoutparse](https://github.com/inakleinbottle/texoutparse).
 - [Source Sans](https://github.com/adobe-fonts/source-sans) v3.046 and [Fredericka the Great](https://github.com/google/fonts) v1.001
-- [TinyTex](https://yihui.org/tinytex/) v2023.10 with LaTeX packages in [docker/tinytex_packages.txt](docker/tinytex_packages.txt)
-- [LilyPond](https://lilypond.org/) v2.24.2
+- [TinyTex](https://yihui.org/tinytex/) v2026.01 with LaTeX packages in [docker/tinytex_packages.txt](docker/tinytex_packages.txt)
+- [LilyPond](https://lilypond.org/) v2.24.4
 
 Clone the repository and make sure that the files can be found by the respective programs:
+
 - Define the shell variable `EES_TOOLS_PATH` to point to this directory.
 - Run `tlmgr conf auxtrees add $EES_TOOLS_PATH`.
 - Always run LilyPond with the flag `--include=$EES_TOOLS_PATH`.
 
 From the root directory of an edition, invoke `make` to engrave scores:
+
 - `make final/scores` generates all publication-ready scores in folder *final*.
 - `make info` lists all available build targets.
 
 Alternatively, configure your text editor to invoke LilyPond. For instance, use this task for VS Code:
+
 ```json
 {
   "label": "Run LilyPond with EES Tools",
@@ -130,34 +134,37 @@ gh repo create edition-esser-skala/<repository> \
 ```
 
 The new repository will contain the following folders and files:
-- **notes/*.ly** – LilyPond files containing individual voices; add new variables with [add_variables.py](#add_variablespy)
-- **print** (optional) – metadata and cover for the printed edition
-  - *printer.yaml* – contains keys `printer` (currently always `KDP` for Kindle Direct Publishing) and `asin` (Amazon Standard Identification Number)
-- **scores/*.ly** – LilyPond files containing score definitions
-- **.gitignore** – excludes irrelevant files from the repository
-- **CHANGELOG.md** – the [changelog](https://keepachangelog.com/en/1.0.0/)
-- **definitions.ly** – general definitions; include [ees.ly](#eesly)
-- **LICENSE** – the license ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) or [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/))
-- **Makefile** – configuration file for `make`; imports [ees.mk](#eesmk)
-- **metadata.yaml** – metadata whose format is described [below](#metadatayaml); can be processed with [read_metadata.py](#read_metadatapy)
-- **.github/workflows/engrave-and-release.yaml** – GitHub Actions workflow that reuses the [workflow of the same name](#githubworkflowsengrave-and-releaseyaml) from EES Tools
-- **front_matter/critical_report.tex** – prefatory material based upon [ees.cls](#texlatexeescls)
+
+- `notes/*.ly` – LilyPond files containing individual voices; add new variables with [add_variables.py](#add_variablespy)
+- `print` (optional) – metadata and cover for the printed edition
+  - `printer.yaml` – contains keys `printer` (currently always `KDP` for Kindle Direct Publishing) and `asin` (Amazon Standard Identification Number)
+- `scores/*.ly` – LilyPond files containing score definitions
+- `.gitignore` – excludes irrelevant files from the repository
+- `CHANGELOG.md` – the [changelog](https://keepachangelog.com/en/1.0.0/)
+- `definitions.ly` – general definitions; include [ees.ly](#eesly)
+- `LICENSE` – the license ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) or [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/))
+- `Makefile` – configuration file for `make`; imports [ees.mk](#eesmk)
+- `metadata.yaml` – metadata whose format is described [below](#metadatayaml); can be processed with [read_metadata.py](#read_metadatapy)
+- `.github/workflows/engrave-and-release.yaml` – GitHub Actions workflow that reuses the [workflow of the same name](#githubworkflowsengrave-and-releaseyaml) from EES Tools
+- `front_matter/critical_report.tex` – prefatory material based upon [ees.cls](#texlatexeescls)
 
 
 ### Collected works
 
 Repositories for collected works (Werner, Tůma …) contain additional files and folders:
-- **front_matter**:
-  - **general_preface.tex** – a general preface describing the project
-  - **cover_general_preface.pdf/svg** – cover for the preface
-- **scores/full_score.ly** – only a placeholder
-- **works** – contains the source files for each work in a subfolder
-- **definitions_main.ly** – main definitions
-- **ignored_works** – works that should not be engraved to PDF; lines starting with `#` are comments
-- **Makefile** – only calls Python with the script below
-- **make.py** – assembles a makefile from the contents of `works`, also taking ignored works into account; see `make info` for additional targets
 
-In the **metadata.yaml** file for each work, the `composer` key is optional. Moreover, the file supports additional keys:
+- `front_matter`:
+  - `general_preface.tex` – a general preface describing the project
+  - `cover_general_preface.pdf/svg` – cover for the preface
+- `scores/full_score.ly` – only a placeholder
+- `works` – contains the source files for each work in a subfolder
+- `definitions_main.ly` – main definitions
+- `ignored_works` – works that should not be engraved to PDF; lines starting with `#` are comments
+- `Makefile` – only calls Python with the script below
+- `make.py` – assembles a makefile from the contents of `works`, also taking ignored works into account; see `make info` for additional targets
+
+In the `metadata.yaml` file for each work, the `composer` key is optional. Moreover, the file supports additional keys:
+
 - `abbrwidth` and `tocstyle` (`none` or `default`) override the LaTeX class option of the same name.
 - `genre` and `festival` are printed as subtitle on the title page.
 - `toe` is passed to by `\eesCriticalReport`.
@@ -185,6 +192,7 @@ Set these Scheme variables before including the file, like
 ### Score settings
 
 Include one of the following files in subfolder `score_settings` at the beginning of a score definition:
+
 - `one-staff.ly`: Format parts with a single staff (e.g., vl 1). `option-instrument-name` sets the instrument name of this staff.
 - `two-staves.ly`: Format parts with two bracketed staves (e.g., cor 1, 2). `option-instrument-name` sets the instrument name of the bracket.
 - `three-staves.ly`: Format parts with three staves, of which the upper two are bracketed (e.g., ottoni). `option-instrument-name-upper` and `option-instrument-name-lower` set the instrument name of the bracket and lower staff, respectively.
@@ -262,6 +270,7 @@ These commands print an instrument name including pitches. `\transposedName` and
 ### Sectioning and TOC
 
 Sectioning commands:
+
 - `\insertEmptyPage`: Inserts an empty page (useful if parts should start on the right page).
 - `\part "<label>" "<number>" "<title>"`: Adds a part page, followed by an empty page. Must be used inside a `\book`. For technical reasons, a `<label>` has to be supplied even if the command is used for a default TOC.
 - `\section "<title>"`,
@@ -271,6 +280,7 @@ Sectioning commands:
 - `\tacet "<level>" [<distance> = #4] "<title>"`: Adds `<title>` centered and the italic word “tacet” below. The optional argument `<distance>` allows to change the vertical distance to the preceding staff. `<level>` (either `section` or `subsection`) ensures that the font size matches the respective heading.
 
 TOC commands:
+
 - `\addTocEntry`: Adds a TOC entry; should be used immediately after a heading command.
 - `\addTocLabel "<label>"`: Adds a labeled TOC entry. The `<label>` must be unique throughout the score.
 
@@ -328,6 +338,7 @@ TOC commands:
   `\unisono`|unisono
   `\vlc`|vlc
   `\vlne`|vlne
+
 
 - `\critnote`: print asterisk denoting an editorial emendation
 - `\mvTr`: move text 2 staff spaces to the right
@@ -396,6 +407,7 @@ TOC commands:
 ## ees.mk
 
 Makefile that defines rules for engraving scores. This file is included by the `Makefile` in the repository of each work. Available targets:
+
 - `full_score`, `b`, `vl1` etc: individual scores (LilyPond output only)
 - `scores`: all scores
 - `final/full_score`, `final/b`, `final/vl1` etc: individual final scores (LilyPond output + front matter)
@@ -418,6 +430,7 @@ A variant of LilyPond's `articulate.ly` with longer staccatissimo and slower tri
 ## instrument_data.csv
 
 This table describes instruments (rows) via the following variables (columns):
+
 - *abbreviation* – abbreviation used in the scoring, the list of abbreviations, and score file names
 - *long* – full English name given in the list of abbreviations
 - *variable* – name used in LilyPond variables
@@ -459,6 +472,7 @@ This script creates various outputs from information in `metadata.yaml`, dependi
 The long form of a scoring abbreviation is looked up [instrument_data.csv](#instrument_datacsv). The abbreviation may end in an Arabic number, which is converted to a Roman numeral (e.g., `vl2` -> "Violino II"). Abbreviations can also be defined in `metadata.yaml` via the `parts` key (e.g., `clno12: Clarino I, II in C`).
 
 The subcommand also obtains the following information from the git metadata:
+
 - name of the remote repository `origin` (-> `\MetadataRepository`)
 - version … (-> `\MetadataVersion`)
 - … date … (-> `\MetadataDate`)
@@ -471,11 +485,11 @@ Furthermore, the subcommand reads the LilyPond version from the output of `lilyp
 ### metadata.yaml
 
 This file describes metadata for each work and comprises the following keys:
+
 - `composer` (optional): The composer's name, specified by the following subkeys:
   - `last` (required): last name (-> `\MetadataLastname`)
   - `first` (optional): first name (-> `\MetadataFirstname`)
   - `suffix` (optional): name suffix (-> `\MetadataNamesuffix`)
-
   Note that this key is optional mainly to facilitate collections of works by the same composer (such as the [Proprium Missæ](https://github.com/edition-esser-skala/haydn-m-proprium-missae) project). If the key is missing, first and last name are set to “(unknown)”.
 - `title` (required): Work title (-> `\MetadataTitle`).
 - `subtitle` (optional): Work subtitle. The subtitle is combined with the work identifier and stored in `\MetadataSubtitle`. If this key is missing, the work identifier is used alone.
@@ -509,6 +523,7 @@ LaTeX class for printing scores with prefatory material.
 ### Class options
 
 Type and default value in parentheses.
+
 - `abbrwidth` (length, 3em): width of the first column in the list of abbreviations
 - `changelog` (Boolean, true): print the changelog (i.e., include *CHANGELOG.md*)
 - `shortnamesize` (number, 80): font size for the composer name in the title page head
@@ -519,7 +534,6 @@ Type and default value in parentheses.
   - `default`: print a normal TOC
   - `ref`: print a manual TOC using labels
   - `ref-genre`: print a manual TOC using labels; include a genre
-
   Note that even if a TOC is not printed, the pdf will contain bookmarks with entries for movements as well as sections in the prefatory material
 - `toe` (Boolean, true): indicates whether the commentary contains a table of emendations
 
@@ -538,6 +552,7 @@ Type and default value in parentheses.
 ### Metadata
 
 By default, these macros use the respective values in `metadata.yaml`.
+
 - `\firstname{}`: first name of the composer (default: `\MetadataFirstname`)
 - `\lastname{}`: last name of the composer (default: `\MetadataLastname`)
 - `\namesuffix{}`: name suffix of the composer (default: `\MetadataNamesuffix`)
@@ -812,12 +827,13 @@ Incipits for …
   \incipit "Soprano II" "soprano" #-20 #-1.8
   ```
 
-- mixed chorus with or without continuo:
+- mixed chorus (with or without continuo):
   ```lilypond
   \incipit "Soprano" "soprano" #-20.5 #-0.3
   \incipit "Alto" "alto" #-18.3 #-0.3
   \incipit "Tenore" "tenor" #-19.7 #-0.3
   ```
+  
 - solo voice and strings:
   ```lilypond
   \incipit "Soprano" "soprano" #-18.0 #-2.8
@@ -825,13 +841,20 @@ Incipits for …
   \incipit "Tenore" "tenor" #-17.2 #-2.8
   ```
 
-- alto and tenor with trombones:
+- alto and tenor with trombones colla parte:
   ```lilypond
   \incipit \markup \center-column { "Alto" "Trombone I" } "alto" #-20.5 #-1.8
   \incipit \markup \center-column { "Tenore" "Trombone II" } "tenor" #-20.9 #-1.8
   ```
 
-- voices with accompanying strings:
+- voices with strings colla parte:
+  ```lilypond
+  \incipit \markup \center-column { "Soprano" "Violino I" } "soprano" #-20.5 #-0.3
+  \incipit \markup \center-column { "Alto" "Violino II" } "alto" #-20.9 #-0.3
+  \incipit \markup \center-column { "Tenore" "Viola" } "tenor" #-19.6 #-0.3
+  ```
+
+- voices with strings colla parte (bracketed):
   ```lilypond
   \incipit \markup \center-column { "Soprano" "[Violino I]" } "soprano" #-21.3 #-0.3
   \incipit \markup \center-column { "Alto" "[Violino II]" } "alto" #-21.8 #-0.3
@@ -843,6 +866,7 @@ Incipits for …
   \incipit "I" "soprano" #-16.1 #-0.8
   \incipit "II" "alto" #-16.4 #-0.8
   ```
+  
 - right hand of organ solo
   ```lilypond
   \incipit " " "soprano" #0 #-1.8
@@ -875,6 +899,7 @@ Basso = {
 ### Spacing recommendations
 
 Vertical spacing is changed by modifying
+
 - the *top margin* via `top-system-spacing` (default: 20 staff spaces), `top-markup-spacing` (5), and `markup-system-spacing` (15);
 - the distance *between systems* via `system-system-spacing` (20); and
 - distances *within a system* via `\smallGroupDistance`, `\smallStaffDistance`, and user-defined similar commands.
@@ -1037,3 +1062,4 @@ export IIIF_MAX_SIZE=2155; iiif-download -d . https://copia.oszk.hu/kotta/2-rora
   ```bash
   docker build --build-arg user_id=$(id -u) --build-arg group_id=$(id -g) --tag ees-tools .
   ```
+
