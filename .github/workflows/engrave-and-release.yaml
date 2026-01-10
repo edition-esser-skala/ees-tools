@@ -17,9 +17,19 @@ jobs:
 
       - name: Release
         id: create_release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
             final/*.pdf
             final/midi_collection.zip
           fail_on_unmatched_files: false
+
+      - name: Publish via rsync
+        uses: burnett01/rsync-deployments@v8
+        with:
+          switches: -avzrm --delete
+          path: final/
+          remote_path: html/edition/assets/${{ github.event.repository.name }}/
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
