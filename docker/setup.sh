@@ -20,8 +20,7 @@ pip install GitPython numpy pandas segno strictyaml termcolor texoutparse
 
 # TinyTex
 wget https://yihui.org/tinytex/install-bin-unix.sh
-export TINYTEX_VERSION=2023.10
-sh install-bin-unix.sh
+export TINYTEX_VERSION=2026.01; sh install-bin-unix.sh
 mv /root/.TinyTeX /opt/tinytex
 /opt/tinytex/bin/x86_64-linux/tlmgr option sys_bin /usr/local/bin
 /opt/tinytex/bin/x86_64-linux/tlmgr path add
@@ -30,9 +29,9 @@ tlmgr install `cat tinytex_packages.txt`
 chmod -R a+rw /opt/tinytex
 
 # LilyPond
-wget https://gitlab.com/lilypond/lilypond/-/releases/v2.24.2/downloads/lilypond-2.24.2-linux-x86_64.tar.gz
-tar xvfz lilypond-2.24.2-linux-x86_64.tar.gz
-mv lilypond-2.24.2 /opt/lilypond
+wget https://gitlab.com/lilypond/lilypond/-/releases/v2.24.4/downloads/lilypond-2.24.4-linux-x86_64.tar.gz
+tar xvfz lilypond-2.24.4-linux-x86_64.tar.gz
+mv lilypond-2.24.4 /opt/lilypond
 
 # Fonts
 wget https://github.com/google/fonts/raw/main/ofl/frederickathegreat/FrederickatheGreat-Regular.ttf

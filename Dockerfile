@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.11
+FROM python:3.14
 
 ARG user_id
 ARG group_id
