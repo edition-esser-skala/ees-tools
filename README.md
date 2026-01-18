@@ -452,11 +452,7 @@ This script converts information in `metadata.yaml` to a file containing LaTeX m
 - `-i`, `--input FILE`: read metadata from `FILE` (default: `metadata.yaml`)
 - `-o`, `--output FILE`: write the macros to `FILE` (default: `front_matter/critical_report.macros`)
 - `-t`, `--type TYPE`: select score `TYPE` for front matter:
-  - `draft` (default):
-    - set `\MetadataScoretype` to `Draft`
-    - include critical report, changelog and TOC
-    - do *not* print any scores
-  - `full_score`:
+  - `full_score` (default):
     - set `\MetadataScoretype` to `Full Score`
     - include critical report, changelog and TOC
     - print the full score
@@ -472,7 +468,7 @@ This script converts information in `metadata.yaml` to a file containing LaTeX m
 
 The long form of a scoring abbreviation is looked up [instrument_data.csv](#instrument_datacsv). The abbreviation may end in an Arabic number, which is converted to a Roman numeral (e.g., `vl2` -> "Violino II"). Abbreviations can also be defined in `metadata.yaml` via the `parts` key (e.g., `clno12: Clarino I, II in C`).
 
-The subcommand also obtains the following information from the git metadata:
+The script also obtains the following information from the git metadata:
 
 - name of the remote repository `origin` (-> `\MetadataRepository`)
 - version … (-> `\MetadataVersion`)
@@ -480,7 +476,7 @@ The subcommand also obtains the following information from the git metadata:
 - … and checksum of HEAD or the most recent tag (-> `\MetadataChecksum`)
 - a link to the score PDF in the current release, represented as a QR code made by PGF macros (-> `\MetadataQRCode`)
 
-Furthermore, the subcommand reads the LilyPond version from the output of `lilypond --version` (-> `\MetadataLilypondVersion`) and the EES Tools version from the most recent tag of the repository in `$EES_TOOLS_PATH` (-> `\MetadataEESToolsVersion`).
+Furthermore, the script reads the LilyPond version from the output of `lilypond --version` (-> `\MetadataLilypondVersion`) and the EES Tools version from the most recent tag of the repository in `$EES_TOOLS_PATH` (-> `\MetadataEESToolsVersion`).
 
 
 ### metadata.yaml
@@ -584,7 +580,7 @@ The value of any additional metadata `<key>` can be retrieved via `\Metadata<Key
 - `\eesCommentaryAfterToe`: Text that should be printed after the table of emendations (by default empty).
 - `\eesToc{<contents>}`: Setup pdf bookmarks; print the table of contents unless `tocstyle=none`. If `tocstyle=ref` or `ref-genre`, the value of the argument is printed under the headline *Contents* and allows to format the TOC manually (see below).
 - `\eesScore`: Print the included score.
-- `\ifPrintFrontMatter` … `\fi`: Additional content in the prefatory material should be surrounded by this conditional, which ensures that it is only printed in the full score and draft.
+- `\ifPrintFrontMatter` … `\fi`: Additional content in the prefatory material should be surrounded by this conditional, which ensures that it is only printed in the full score.
 
 
 ### Manual TOC

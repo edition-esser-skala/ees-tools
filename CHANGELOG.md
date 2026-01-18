@@ -66,7 +66,9 @@
 
 ### Removed
 
-- `read_metadata.py`: subparsers (now only the previous `edition` functionality is supported)
+- `read_metadata.py`:
+  - subparsers (now only the previous `edition` functionality is supported)
+  - score type `draft`
 
 
 ## v2023.10.0 – 2023-10-06
