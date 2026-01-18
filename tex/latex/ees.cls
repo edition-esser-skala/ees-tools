@@ -281,7 +281,7 @@
 \newcommand\abbr[2]{\item[#1]#2}
 
 
-\RequirePackage[cacheDir=/tmp/latex-markdown,smartEllipses]{markdown}
+\RequirePackage[cacheDir=markdown_cache,smartEllipses]{markdown}
 
 
 \RequirePackage{datetime2}

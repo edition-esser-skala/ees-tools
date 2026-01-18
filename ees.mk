@@ -41,11 +41,12 @@ $(scores:%=final/%.pdf): final/%.pdf: front_matter/critical_report.tex \
 >        -outdir=../final \
 >        -jobname=$* \
 >        front_matter/critical_report.tex
-> cp final/$*.log tmp/$*.tex.log
+>cp final/$*.log tmp/$*.tex.log
 >latexmk -c \
 >        -outdir=final \
 >        -jobname=$* \
 >        front_matter/critical_report.tex
+>rm -rf front_matter/markdown_cache
 
 ## all final scores (`make final/scores')
 .PHONY: final/scores
