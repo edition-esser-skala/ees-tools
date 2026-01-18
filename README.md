@@ -647,6 +647,7 @@ This folder contains various documents:
 
 - `editorial_guidelines.md`: the current editorial guidelines
 - `imslp_instructions.md`: instructions for publishing scores at IMSLP
+- `updating.md`: how to update scores to new EES Tools versions
 
 
 ## utils/*

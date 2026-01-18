@@ -44,6 +44,7 @@
 - information on how to include a snippet in the TOE
 - a hexlogo for EES tools
 - documentation for repositories of collected works
+- `documents/updating.md`, which describes how to update scores to new EES Tools versions
 
 
 ### Changed
@@ -127,13 +128,6 @@
 
 
 ## v2022.12.0 – 2023-01-14
-
-### Breaking changes
-
-None, but you may
-- remove `#(define option-init-toc #t)` from `definitions.ly`
-- replace `\l` by `_` if no extenders are printed
-
 
 ### Added
 
