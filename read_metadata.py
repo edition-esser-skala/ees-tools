@@ -439,21 +439,14 @@ def prepare_edition(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(add_help=True)
-    subparsers = parser.add_subparsers(
-        title="subcommands",
-        help="additional help available for each subcommand",
-        required=True
-    )
-
-    parser_edition = subparsers.add_parser("edition")
-    parser_edition.add_argument(
+    parser.add_argument(
         "-i",
         "--input",
         default="metadata.yaml",
         help="read metadata from FILE (default: 'metadata.yaml')",
         metavar="FILE"
     )
-    parser_edition.add_argument(
+    parser.add_argument(
         "-o",
         "--output",
         default="front_matter/critical_report.macros",
@@ -461,7 +454,7 @@ if __name__ == "__main__":
                 (default: 'front_matter/critical_report.macros')""",
         metavar="FILE"
     )
-    parser_edition.add_argument(
+    parser.add_argument(
         "-t",
         "--type",
         default="draft",
@@ -469,7 +462,7 @@ if __name__ == "__main__":
                 ('full_score', 'draft', or part name;
                 default: 'draft')"""
     )
-    parser_edition.add_argument(
+    parser.add_argument(
         "-c",
         "--checksum-from",
         choices=["head", "tag"],
@@ -477,7 +470,7 @@ if __name__ == "__main__":
         help="""obtain version, date, and checksum from HEAD
                 or the most recent tag (default: head)"""
     )
-    parser_edition.add_argument(
+    parser.add_argument(
         "-k",
         "--additional-keys",
         nargs="*",
@@ -485,21 +478,21 @@ if __name__ == "__main__":
         help="""process additional KEYS""",
         metavar="KEYS"
     )
-    parser_edition.add_argument(
+    parser.add_argument(
         "-s",
         "--score-directory",
         default="../tmp",
         help="""read included scores from this directory (default: ../tmp)""",
         metavar="DIR"
     )
-    parser_edition.add_argument(
+    parser.add_argument(
         "-l",
         "--license-directory",
         default=".",
         help="""check the LICENSE in this directory (default: current dir)""",
         metavar="DIR"
     )
-    parser_edition.add_argument(
+    parser.add_argument(
         "-q",
         "--qr-base-url",
         default=None,
@@ -507,7 +500,7 @@ if __name__ == "__main__":
                 (default: current GitHub release)""",
         metavar="URL"
     )
-    parser_edition.set_defaults(func=prepare_edition)
+    parser.set_defaults(func=prepare_edition)
 
     parsed_args = parser.parse_args()
     parsed_args.func(parsed_args)

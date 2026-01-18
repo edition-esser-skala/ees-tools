@@ -35,7 +35,7 @@ $(scores:%=final/%.pdf): final/%.pdf: front_matter/critical_report.tex \
                                       tmp/%.pdf \
                                       metadata.yaml \
                                       CHANGELOG.md
->python $(EES_TOOLS_PATH)/read_metadata.py edition -c tag -t $*
+>python $(EES_TOOLS_PATH)/read_metadata.py -c tag -t $*
 >latexmk -cd \
 >        -lualatex \
 >        -outdir=../final \

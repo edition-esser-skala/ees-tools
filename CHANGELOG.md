@@ -66,7 +66,7 @@
 
 ### Removed
 
-- `read_metadata.py`: subcommand `table`
+- `read_metadata.py`: subparsers (now only the previous `edition` functionality is supported)
 
 
 ## v2023.10.0 – 2023-10-06

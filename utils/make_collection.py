@@ -99,7 +99,7 @@ DEFINITIONS_HEADER = """\
 
 PYTHON_CALL = """
 mkdir -p tmp/{name}
-python $EES_TOOLS_PATH/read_metadata.py edition \\
+python $EES_TOOLS_PATH/read_metadata.py \\
     -i works/{work}/metadata.yaml \\
     -o tmp/{name}/metadata_{work}.macros \\
     -t full_score \\

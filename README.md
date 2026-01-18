@@ -446,7 +446,7 @@ This table describes instruments (rows) via the following variables (columns):
 
 ## read_metadata.py
 
-This script creates various outputs from information in `metadata.yaml`, depending on the subcommand given as first argument. Currently, only the subcommand `edition` is implemented. It generates a set of LaTeX macros that can be imported by `front_matter/critical_report.tex`. Each of these LaTeX macros starts with `\Metadata...`. The mapping between YAML keys and macros is described below.
+This script converts information in `metadata.yaml` to a file containing LaTeX macros that will be imported by `front_matter/critical_report.tex`. Each of these LaTeX macros starts with `\Metadata...`. The mapping between YAML keys and macros is described below.
 
 - `-h`, `--help`: show this help message and exit
 - `-i`, `--input FILE`: read metadata from `FILE` (default: `metadata.yaml`)
