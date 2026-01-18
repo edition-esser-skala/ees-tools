@@ -54,6 +54,7 @@
 - Stanza numbers now use the same font as lyrics.
 - The asterisk for critical notes is now a red star.
 - The company name in the imprint is now “Edition Esser-Skala e.U.”.
+- The QR code now encodes the ARK of the score.
 - The engrave-and-release workflow now syncs PDFs to the website server. The workflow in ees-template has been updated accordingly.
 
 
@@ -68,6 +69,7 @@
 
 - `read_metadata.py`:
   - subparsers (now only the previous `edition` functionality is supported)
+  - the `-q` argument
   - score type `draft`
 
 

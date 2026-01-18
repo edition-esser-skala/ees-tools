@@ -147,9 +147,6 @@ PRINT_SCORE_TEMPLATE = """
 def get_score_type(abbr, parts):
     """Derive the score type shown on the title page
        from the score type abbreviation."""
-    if abbr == "draft":
-        return "Draft"
-
     if abbr == "full_score":
         return "Full score"
 
@@ -176,11 +173,10 @@ def get_abbr(a):
 
 def parse_metadata(file=None,
                    string=None,
-                   score_type="draft",
+                   score_type="full_score",
                    checksum_from="tag",
                    check_license=True,
-                   license_directory=".",
-                   qr_base_url=None):
+                   license_directory="."):
     """Parse metadata."""
     if file is not None:
         with open(file, encoding="utf8") as f:
@@ -203,8 +199,8 @@ def parse_metadata(file=None,
         metadata["composer"]["suffix"] = ""
 
     ## Score type
-    # The score type depends on the value of `-t` and is either set to "Draft",
-    # "Full Score", or the respective part as specified in the
+    # The score type depends on the value of `-t` and is either set to
+    # "Full Score" or the respective part as specified in the
     # instrument metadata. Can be overridden by the `parts` key.
     # Roman numbers are automatically appended.
 
@@ -267,19 +263,12 @@ def parse_metadata(file=None,
         metadata["ark"] = metadata["ark"] + "/" + score_type
 
     ## QR Code
-    # It will contain a link to the PDF in the current release.
-
-    if score_type == "draft":
-        metadata["qr_code"] = ""
-    else:
-        if qr_base_url is None:
-            qr_base_url = (f"https://github.com/{metadata['repository']}/"
-                           f"releases/download/{metadata['version']}")
-        qr_url = f"{qr_base_url}/{score_type}.pdf"
-        qr_buffer = io.StringIO()
-        segno.make_qr(qr_url).save(qr_buffer, kind="tex", scale=1.5, url=qr_url)
-        metadata["qr_code"] = qr_buffer.getvalue()
-        qr_buffer.close()
+    # It will contain a link to the ARK.
+    qr_url = "https://n2t.net/ark:" + metadata["ark"]
+    qr_buffer = io.StringIO()
+    segno.make_qr(qr_url).save(qr_buffer, kind="tex", scale=1.5, url=qr_url)
+    metadata["qr_code"] = qr_buffer.getvalue()
+    qr_buffer.close()
 
 
     ## Sources
@@ -401,12 +390,11 @@ def prepare_edition(args):
         file=args.input,
         score_type=args.type,
         checksum_from=args.checksum_from,
-        license_directory=args.license_directory,
-        qr_base_url=args.qr_base_url
+        license_directory=args.license_directory
     )
 
     # assemble macros
-    if args.type in ("draft", "full_score"):
+    if args.type == "full_score":
         macros_conditionals = "\\PrintFrontMattertrue\n"
     else:
         macros_conditionals = "\\PrintFrontMatterfalse\n"
@@ -419,12 +407,9 @@ def prepare_edition(args):
         if k in metadata
     ])
 
-    if args.type == "draft":
-        macros_scores = ""
-    else:
-        macros_scores = PRINT_SCORE_TEMPLATE.format(
-            type=args.type, score_dir=args.score_directory
-        )
+    macros_scores = PRINT_SCORE_TEMPLATE.format(
+        type=args.type, score_dir=args.score_directory
+    )
 
     # save macros
     with open(args.output, "w", encoding="utf8") as f:
@@ -457,10 +442,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "-t",
         "--type",
-        default="draft",
+        default="full_score",
         help="""select score TYPE for front matter
-                ('full_score', 'draft', or part name;
-                default: 'draft')"""
+                ('full_score' or part name; default: 'full_score')"""
     )
     parser.add_argument(
         "-c",
@@ -491,14 +475,6 @@ if __name__ == "__main__":
         default=".",
         help="""check the LICENSE in this directory (default: current dir)""",
         metavar="DIR"
-    )
-    parser.add_argument(
-        "-q",
-        "--qr-base-url",
-        default=None,
-        help="""download score PDFs from this base URL
-                (default: current GitHub release)""",
-        metavar="URL"
     )
     parser.set_defaults(func=prepare_edition)
 

@@ -464,7 +464,6 @@ This script converts information in `metadata.yaml` to a file containing LaTeX m
 - `-k`, `--additional-keys [KEYS ...]`: process additional KEYS
 - `-s`, `--score_directory DIR`: read included scores from this directory (default: `../tmp`)
 - `-l`, `--license-directory DIR`: check the LICENSE in this directory (default: current dir)
-- `-q`, `--qr-base-url URL`: download score PDFs from this base URL (default: current GitHub release)
 
 The long form of a scoring abbreviation is looked up [instrument_data.csv](#instrument_datacsv). The abbreviation may end in an Arabic number, which is converted to a Roman numeral (e.g., `vl2` -> "Violino II"). Abbreviations can also be defined in `metadata.yaml` via the `parts` key (e.g., `clno12: Clarino I, II in C`).
 
@@ -474,7 +473,6 @@ The script also obtains the following information from the git metadata:
 - version … (-> `\MetadataVersion`)
 - … date … (-> `\MetadataDate`)
 - … and checksum of HEAD or the most recent tag (-> `\MetadataChecksum`)
-- a link to the score PDF in the current release, represented as a QR code made by PGF macros (-> `\MetadataQRCode`)
 
 Furthermore, the script reads the LilyPond version from the output of `lilypond --version` (-> `\MetadataLilypondVersion`) and the EES Tools version from the most recent tag of the repository in `$EES_TOOLS_PATH` (-> `\MetadataEESToolsVersion`).
 
@@ -493,7 +491,7 @@ This file describes metadata for each work and comprises the following keys:
 - `id` (optional): Work identifier (typically, the catalogue of works number). If this key is missing, the RISM library siglum and shelfmark of the principal source are used.
 - `genre` (required): Work genre (only used on the webpage).
 - `scoring` (required): Scoring of the work (-> `\MetadataScoring`). See the editorial guidelines for the scoring syntax. The list of abbreviations in the critical report is also assembled from the scoring information (-> `\MetadataAbbreviations`)
-- `ark` (required): Archival Resource Key.
+- `ark` (required): Archival Resource Key (-> `\MetadataArk`). The ARK is also converted to a QR code drawn by PGF macros (-> `\MetadataQRCode`)
 - `editor` (optional): Editor of the work (default: Wolfgang Esser-Skala; -> `\MetadataEditor`).
 - `orcid` (optional): The editor's ORCID (default: 0000-0002-7350-4045; -> `\MetadataOrcid`).
 - `license` (required): License of the edition (-> `\MetadataLicense`). Currently, the following values are supported: `cc-by-sa-4.0` and `cc-by-nc-sa-4.0`.
