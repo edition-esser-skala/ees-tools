@@ -192,6 +192,10 @@ for instrument in args.notes:
     else:
         key = instrument_data.loc[abbr, "default_key"]
 
+    time_sig = args.time
+    if args.time == "3":
+        time_sig = "3/4"
+
     time_modifier = ""
     if args.time == "2/2":
         time_modifier = "\\twotwotime "
@@ -203,6 +207,8 @@ for instrument in args.notes:
         flags.append(f"  \\set Score.currentBarNumber = #{args.current_bar}")
     if args.partial:
         flags.append(f"\\partial {args.partial}")
+    if args.time == "3":
+        flags.append("  \\once \\override Staff.TimeSignature.style = #'single-digit")
 
     keys = dict(
         movement=args.movement,
@@ -211,7 +217,7 @@ for instrument in args.notes:
         time_modifier=time_modifier,
         clef=clef,
         key=make_key_signature(key),
-        time=args.time,
+        time=time_sig,
         autobeam="\\autoBeamOff "
                  if not instrument_data.loc[abbr, "autobeam"]
                  else "",

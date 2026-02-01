@@ -1,5 +1,13 @@
 # Changelog
 
+## v2026.01.0.9000 – unreleased
+
+### Added
+
+- `add_variables.py`: support for 3/4 time without denominator
+- [Pixi](https://pixi.prefix.dev) as environment manager
+
+
 ## v2026.01.0 – 2026-01-18
 
 ### Added
