@@ -1,2 +1,5 @@
 __pycache__
 works.csv
+# pixi environments
+.pixi/*
+!.pixi/config.toml
