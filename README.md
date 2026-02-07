@@ -677,6 +677,8 @@ This folder contains miscellaneous scripts:
   - `-f`, `--force-file-creation`:
     create missing files (default: false)
 
+- `download_all_assets.R`: downloads all latest scores from all repositories
+
 - `download_from_manuscriptorium.sh`: obtains high-resolution images from Manuscriptorium. Usage:
   ```bash
   download_from_manuscriptorium.sh <ID> <last page>
