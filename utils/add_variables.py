@@ -97,6 +97,12 @@ parser.add_argument(
     default="4/4"
 )
 parser.add_argument(
+    "-z",
+    "--time-displayed",
+    help="time signature displayed (default: none)",
+    default=None
+)
+parser.add_argument(
     "-p",
     "--partial",
     help="duration of upbeat (default: no upbeat)",
@@ -217,6 +223,9 @@ for instrument in args.notes:
         flags.append(f"\\partial {args.partial}")
     if args.time == "3":
         flags.append("  \\once \\override Staff.TimeSignature.style = #'single-digit")
+    if args.time_displayed:
+        flags.append(f"  \\set Staff.timeSignatureFraction = {args.time_displayed}")
+
 
     keys = dict(
         movement=args.movement,

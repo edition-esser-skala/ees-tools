@@ -668,6 +668,8 @@ This folder contains miscellaneous scripts:
     - `d_dorian` is D dorian
   - `-t`, `--time TIME`:
     time signature (default: 4/4); "3" yields 3/4 time without denominator
+  - `-z`, `--time-displayed TIME`:
+    time signature displayed (default: same as actual time)
   - `-p`, `--partial PARTIAL`:
     duration of upbeat (default: no upbeat)
   - `-b`, `--current-bar CURRENT_BAR`:
