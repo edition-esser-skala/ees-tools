@@ -123,18 +123,19 @@ args = parser.parse_args()
 
 def arabic_to_roman(number=None):
     """Converts an arabic number to a Roman numeral."""
-    conv = [[1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
-            [ 100, "C"], [ 90, "XC"], [ 50, "L"], [ 40, "XL"],
-            [  10, "X"], [  9, "IX"], [  5, "V"], [  4, "IV"],
-            [   1, "I"]]
+    conv = {
+        1000: "M", 900: "CM", 500: "D", 400: "CD",
+         100: "C",  90: "XC",  50: "L",  40: "XL",
+          10: "X",   9: "IX",   5: "V",   4: "IV",
+           1: "I"
+    }
 
     if number is None or number == "":
         return ""
-    else:
-        number = int(number)
+    number = int(number)
 
     result = ""
-    for denom, roman_digit in conv:
+    for denom, roman_digit in conv.items():
         result += roman_digit * (number // denom)
         number %= denom
     return result
@@ -143,7 +144,11 @@ def arabic_to_roman(number=None):
 def make_key_signature(k):
     """Converts a key signature abbreviation
     to the corresponding LilyPond string."""
-    key_letter, mode = key_pattern.match(k).groups()
+    if m := key_pattern.match(k):
+        key_letter, mode = m.groups()
+    else:
+        logging.error(f"Unknown key '{k}'")
+
     if mode == "":
         if key_letter[0].isupper():
             key_letter = key_letter.lower()
@@ -172,7 +177,10 @@ if args.notes == "ALL":
 
 
 for instrument in args.notes:
-    abbr, num = note_pattern.match(instrument).groups()
+    if m := note_pattern.match(instrument):
+        abbr, num = m.groups()
+    else:
+        logging.error(f"Unknown instrument '{instrument}'")
 
     try:
         instrument_long = instrument_data.loc[abbr, 'variable']
