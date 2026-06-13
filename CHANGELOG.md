@@ -10,6 +10,7 @@
 - [Pixi](https://pixi.prefix.dev) as environment manager
 - a script to download all latest scores from all repositories
 - a key `ismn` to `printer.yaml`
+- a snippet to add git push URLs for both GitHub and Codeberg
 
 
 ## v2026.01.0 – 2026-01-18

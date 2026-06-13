@@ -1053,6 +1053,12 @@ Download a set of images from OSZK Copia with [iiif-download](https://github.com
 export IIIF_MAX_SIZE=2155; iiif-download -d . https://copia.oszk.hu/kotta/2-rorate-caeli-f-dur/?manifest
 ```
 
+Add a remote repository both on GitHub and Codeberg.
+```bash
+git remote set-url --add --push origin git@github.com:edition-esser-skala/repo.git
+git remote set-url --add --push origin git@codeberg.org:edition-esser-skala/repo.git
+```
+
 
 ### How to create a new EES Tools release
 
