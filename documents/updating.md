@@ -5,14 +5,15 @@
 - add an ARK to `metadata.yaml`
 - replace `[Tempo deest]` by `[no tempo]`
 - use the following new macros, remove any separate definitions:
-  - `\vlne`
   - `\fC`
+  - `\hA`
   - `\markCritnote`
   - `\mvTz`
   - `\skips`
   - `\setSoloText`
   - `\tempoTitleMarkup`
   - `\trillFlat`
+  - `\vlne`
 - update the following files:
   - `engrave-and-release.yml`
   - `make.py` (only collections)
