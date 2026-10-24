@@ -7,10 +7,11 @@ ob da caccia,oboe da caccia,OboeCacc,Oboe da caccia,c',treble,true,none,none
 cl,clarinet,Clarinetto,Clarinetto,c',treble,true,none,none
 chalumeau,chalumeau,Salmoe,Salmoè,c',treble,true,none,none
 fag,bassoon,Fagotto,Fagotto,c,bass,true,none,none
+contra-fag,contra bassoon,Contrafagotto,Contrafagotto,c,bass,true,none,none
 cor,horn,Corno,Corno,c',treble,true,C,none
 cor da caccia,corno da caccia,CornoCacc,Corno da caccia,c',treble,true,C,none
 clno,clarion,Clarino,Clarino,c',treble,true,C,none
-tr,trumpet,Tromba,Tromba,c',treble,true,C,none
+tr,trumpet,Tromba,Tromba,c',alto,true,C,none
 trb,trombone,Trombone,Trombone,c',alto,true,none,none
 a-trb,alto trombone,AltoTrombone,Alto trombone,c',alto,true,none,none
 t-trb,tenor trombone,TenorTrombone,Tenor trombone,c',tenor,true,none,none
