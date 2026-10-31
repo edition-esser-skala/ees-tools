@@ -805,6 +805,12 @@ extendLV = #(define-music-function
   #})
 ```
 
+Fine-tune dynamics position.
+
+```lilypond
+\once \override DynamicText.extra-offset = #'(0 . -.5)
+```
+
 Mark deleted parts of a score by gaps across the staves.
 
 ```lilypond

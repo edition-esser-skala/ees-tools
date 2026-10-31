@@ -17,6 +17,7 @@
   - `printer.yaml` now supports a key `ismn`
   - other files in this folder are now also described (`cover.svg/pdf`, `front_cover.png`, and `full_score_for_print.pdf`)
 - snippets:
+  - fine-tune dynamics position
   - subdivide eighth-tuplets in common time
   - add git push URLs for both GitHub and Codeberg
 
