@@ -18,7 +18,7 @@ logging.basicConfig(
 
 # Patterns and templates ----
 
-note_pattern = re.compile(r"([A-Za-z]+)(\d?)")
+note_pattern = re.compile(r"([A-Za-z\\-]+)(\d?)")
 key_pattern = re.compile(r"([A-Za-z]+)_?([a-z]*)")
 
 DOCUMENT_PREAMBLE = """\

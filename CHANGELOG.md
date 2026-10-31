@@ -10,6 +10,7 @@
 - `add_variables.py`:
   - support for 3/4 time without denominator
   - support for a different displayed time signature
+  - instrument data for the contra bassoon
 - [Pixi](https://pixi.prefix.dev) as environment manager
 - a script to download all latest scores from all repositories
 - data for printed editions:
