@@ -11,6 +11,7 @@
   - `\mvT <x>`: move text `<x>` staff spaces
   - `\parTn`, which parenthesizes the following tuplet number
   - `\pco` (short for `\once \partCombineChords`)
+  - `\ten` and `\tenE` for a centered text “ten.”
 - support for bibliographies (via biblatex, biblatex-apa and biber)
 - `add_variables.py`:
   - support for 3/4 time without denominator

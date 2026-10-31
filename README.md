@@ -377,6 +377,7 @@ TOC commands:
 - `\parTn`: parenthesize tuplet number
 - `\sbOn` and `\sbOff`: turn on/off subdivided beams
 - `\scriptOut`: force script (like `-|`) to be printed outside of slur
+- `\ten` and `\tenE`: a centered text “ten.”
 - `\trillE`: editorial (parenthesized) trill
 - `\trillFlat`: trill with flat
 - `\trillNatural`: trill with natural

@@ -369,6 +369,8 @@ whOn = \override NoteHead.duration-log = #1
 whOff = \revert NoteHead.duration-log
 xE = \override LyricText.font-shape = #'italic
 x = \revert LyricText.font-shape
+ten = #(make-articulation 'ten)
+tenE = #(make-articulation 'tenE)
 
 bp = #(define-music-function
   (parser location beg end)
@@ -718,12 +720,36 @@ tacet = #(define-scheme-function
   ))
 
 
+#(define ees-script-alist
+   (acons
+    'ten
+    `((stencil . ,(lambda (grob)
+                    (grob-interpret-markup
+                      grob
+                      (markup #:override '(font-encoding . latin1)
+                              #:small #:center-align
+                              "ten."))))
+      (direction . ,UP)
+      (padding . 0.50))
+      (acons
+        'tenE
+        `((stencil . ,(lambda (grob)
+                        (grob-interpret-markup
+                          grob
+                          (markup #:override '(font-encoding . latin1)
+                                  #:small #:italic #:center-align
+                                  "ten."))))
+          (direction . ,UP)
+          (padding . 0.50))
+        default-script-alist)))
+
 \layout {
   \context {
     \Score
     \compressEmptyMeasures
     #(if option-print-all-bar-numbers
          #{ \override BarNumber.break-visibility = ##(#f #t #t) #})
+    scriptDefinitions = #ees-script-alist
   }
   \context {
     \StaffGroup
