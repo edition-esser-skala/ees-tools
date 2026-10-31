@@ -785,7 +785,7 @@ tacet = #(define-scheme-function
          (minimum-distance . 15)
          (padding . -100)
          (stretchability . 0))
-    \accidentalStyle neo-modern-voice
+    \accidentalStyle modern
     extraNatural = ##t
     \override NoteHead.style = #'baroque
     aDueText = \markup { \medium \remark "a 2" }

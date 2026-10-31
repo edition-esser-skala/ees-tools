@@ -28,6 +28,11 @@
   - add git push URLs for both GitHub and Codeberg
 
 
+### Changed
+
+- The default accidental style is now “modern”, which eliminates frequent usage of `\hA`.
+
+
 ## v2026.01.0 – 2026-01-18
 
 ### Added
