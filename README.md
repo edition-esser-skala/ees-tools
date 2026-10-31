@@ -137,6 +137,9 @@ The new repository will contain the following folders and files:
 
 - `notes/*.ly` – LilyPond files containing individual voices; add new variables with [add_variables.py](#add_variablespy)
 - `print` (optional) – metadata and cover for the printed edition
+  - `cover.svg/pdf` – the complete cover (front/spine/back)
+  - `front_cover.png` – the front cover (150 dpi) for usage in VLB
+  - `full_score_for_print.pdf` – the full score formatted for printing (typically, inner margins must be increased)
   - `printer.yaml` – contains keys `printer` (currently always `KDP` for Kindle Direct Publishing), `asin` (Amazon Standard Identification Number), and `ismn` (International Standard Music Number)
 - `scores/*.ly` – LilyPond files containing score definitions
 - `.gitignore` – excludes irrelevant files from the repository

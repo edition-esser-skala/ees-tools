@@ -10,7 +10,9 @@
   - support for a different displayed time signature
 - [Pixi](https://pixi.prefix.dev) as environment manager
 - a script to download all latest scores from all repositories
-- a key `ismn` to `printer.yaml`
+- data for printed editions:
+  - `printer.yaml` now supports a key `ismn`
+  - other files in this folder are now also described (`cover.svg/pdf`, `front_cover.png`, and `full_score_for_print.pdf`)
 - a snippet to add git push URLs for both GitHub and Codeberg
 
 
