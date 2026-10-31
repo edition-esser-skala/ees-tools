@@ -39,6 +39,10 @@ mv FrederickatheGreat-Regular.ttf /usr/share/fonts
 
 wget https://github.com/adobe-fonts/source-sans/releases/download/3.046R/OTF-source-sans-3.046R.zip
 unzip OTF-source-sans-3.046R.zip
+
+wget https://github.com/google/fonts/raw/main/ofl/unifrakturmaguntia/UnifrakturMaguntia-Book.ttf
+mv UnifrakturMaguntia-Book.ttf /usr/share/fonts
+
 mv OTF/*.otf /usr/share/fonts
 
 rm -rf *
