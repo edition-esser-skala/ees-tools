@@ -358,6 +358,7 @@ TOC commands:
 
 - `\twofourtime` and `\twotwotime` adjust automatic beaming in 2/4 and 2/2 time, respectively.
 - The following dynamics commands are redefined and supplemented by an editorial variant: `\fff` (plus `\fffE` etc), `\ff`, `\f`, `\mf`, `\mp`, `\p`, `\pp`, `\ppp`, `\sf`, `\sfp`, `\sfz`, `\fp`, `\fz`, `\fzp`, `\ffz`, `\rf`, `\rfz`, `\passai`, `\piuF`, `\piuP`, `\pocoF`, `\pocoP`, `\cresc`, `\decresc`, and `\perd`.
+- `\brkBeam`: break a beam (same as `\noBeam`, but does not interfere with autocomplete)
 - `\bp`: override beam positions
 - `\extraNat`: force accidental
 - `\fC`: force clef

@@ -629,6 +629,8 @@ markTimeSig = #(define-music-function
     }
   #})
 
+brkBeam = #(make-music 'BeamForbidEvent)
+
 incipit = #(define-music-function
   (name clef name-staff-space staff-system-space)
   (markup? string? number? number?)
