@@ -345,6 +345,7 @@ TOC commands:
 
 
 - `\critnote`: print asterisk denoting an editorial emendation
+- `\mvT <x>`: move text `<x>` staff spaces
 - `\mvTr`: move text 2 staff spaces to the right
 - `\mvTrh`: move text 2.5 staff spaces to the right
 - `\mvTrr`: move text 3 staff spaces to the right
@@ -369,6 +370,7 @@ TOC commands:
 - `\markCritnote`: print an asterisk above the system
 - `\markDaCapo`: print “da capo” right aligned above a bar line
 - `\markTimeSig #'(n d)`: add a parenthesized time signature mark `n/d` above a bar line to indicate a different bar length
+- `\mvD <x>`: move dynamic mark `<x>` staff spaces
 - `\mvDl`: move dynamic mark 2 staff spaces to the left
 - `\mvDll`: move dynamic mark 3 staff spaces to the left
 - `\parOn` and `\parOff`: only print the left/right parenthesis in `\parenthesize`

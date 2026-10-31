@@ -7,6 +7,8 @@
 - macros:
   - dynamics: `\sffz` (with editorial variant)
   - `\brkBeam`, which replaces `\noBeam`
+  - `\mvD <x>`: move dynamic mark `<x>` staff spaces
+  - `\mvT <x>`: move text `<x>` staff spaces
   - `\parTn`, which parenthesizes the following tuplet number
   - `\pco` (short for `\once \partCombineChords`)
 - support for bibliographies (via biblatex, biblatex-apa and biber)

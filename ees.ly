@@ -562,13 +562,27 @@ twotwotime = {
     #'((end . (((1 . 16) . (4 4 4 4)) ((1 . 8) . (4 4)))))
 }
 
+
+mvT = #(define-music-function
+  (parser location offset)
+  (number?)
+  #{
+    \once \override TextScript.X-offset = #offset
+  #})
+mvD = #(define-music-function
+  (parser location offset)
+  (number?)
+  #{
+    \once \override DynamicText.X-offset = #offset
+  #})
+mvTr = \mvT #2
+mvTrh = \mvT #2.5
+mvTrr = \mvT #3
+mvDl = \mvD #-2
+mvDll = \mvD #-3
 mvTz = \tweak TextScript.X-offset #0 \etc
-mvTr = \once \override TextScript.X-offset = #2
-mvTrh = \once \override TextScript.X-offset = #2.5
-mvTrr = \once \override TextScript.X-offset = #3
-hideTn = \once \override TupletNumber.stencil = ##f
-mvDl = \once \override DynamicText.X-offset = #-2
-mvDll = \once \override DynamicText.X-offset = #-3
+
+
 scriptOut = \once \override Script.avoid-slur = #'outside
 pao = \once \partCombineApart
 pco = \once \partCombineChords
