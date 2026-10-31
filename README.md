@@ -372,7 +372,7 @@ TOC commands:
 - `\mvDl`: move dynamic mark 2 staff spaces to the left
 - `\mvDll`: move dynamic mark 3 staff spaces to the left
 - `\parOn` and `\parOff`: only print the left/right parenthesis in `\parenthesize`
-- `\parTupletNumber`: parenthesize tuplet number
+- `\parTn`: parenthesize tuplet number
 - `\sbOn` and `\sbOff`: turn on/off subdivided beams
 - `\scriptOut`: force script (like `-|`) to be printed outside of slur
 - `\trillE`: editorial (parenthesized) trill

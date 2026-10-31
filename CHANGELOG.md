@@ -7,7 +7,7 @@
 - macros:
   - dynamics: `\sffz` (with editorial variant)
   - `\brkBeam`, which replaces `\noBeam`
-  - `\parTupletNumber`, which parenthesizes the following tuplet number
+  - `\parTn`, which parenthesizes the following tuplet number
   - `\pco` (short for `\once \partCombineChords`)
 - support for bibliographies (via biblatex, biblatex-apa and biber)
 - `add_variables.py`:

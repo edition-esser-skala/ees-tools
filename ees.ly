@@ -608,7 +608,8 @@ parOff = {
   (let ((ev (event-cause grob)))
     (format #f "[~a]"
             (ly:event-property ev 'denominator))))
-parTupletNumber = \once \override TupletNumber.text = #tuplet-number::parenthesize
+parTn = \once \override TupletNumber.text = #tuplet-number::parenthesize
+hideTn = \once \override TupletNumber.stencil = ##f
 
 markCritnote = {
   \once \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
