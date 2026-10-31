@@ -169,7 +169,7 @@ Repositories for collected works (Werner, Tůma …) contain additional files an
 
 In the `metadata.yaml` file for each work, the `composer` key is optional. Moreover, the file supports additional keys:
 
-- `abbrwidth`, `enlargefirstpage`, and `tocstyle` (`none` or `default`) override the LaTeX class options of the same name.
+- `abbrwidth`, `enlargefirstpage`, `tocrightmargin`, and `tocstyle` (`none` or `default`) override the LaTeX class options of the same name.
 - `genre` and `festival` are printed as subtitle on the title page.
 - `toe` is passed to by `\eesCriticalReport`.
 - `commentary`, `lyrics`, and `acknowledgements` are glued together with appropriate headings and printed by `\eesCommentaryAfterToe`.

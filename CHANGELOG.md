@@ -19,7 +19,7 @@
   - instrument data for the contra bassoon
 - [Pixi](https://pixi.prefix.dev) as environment manager
 - a script to download all latest scores from all repositories
-- a class option `tocrightmargin` that changes the space between page number and right margin in the TOC
+- a class option `tocrightmargin` that changes the space between page number and right margin in the TOC (also works as YAML key for collections)
 - data for printed editions:
   - `printer.yaml` now supports a key `ismn`
   - other files in this folder are now also described (`cover.svg/pdf`, `front_cover.png`, and `full_score_for_print.pdf`)
