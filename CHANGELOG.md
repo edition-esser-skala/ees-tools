@@ -35,6 +35,7 @@
 
 ### Changed
 
+- LilyPond has been updated to v2.26.0. See [documents/updating.md] for breaking changes.
 - The default accidental style is now “modern”, which eliminates frequent usage of `\hA`.
 
 

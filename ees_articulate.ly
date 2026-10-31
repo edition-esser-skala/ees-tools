@@ -1,5 +1,5 @@
 %
-% Copyright (C) 2008--2022 NICTA
+% Copyright (C) 2008--2026 NICTA
 % Author: Peter Chubb <peter.chubb AT nicta.com.au>
 % $Id: articulate.ly,v 1.7 2011-03-24 00:40:00 peterc Exp $
 %
@@ -59,8 +59,7 @@
 %   will take the time of a crotchet).
 % * Trills and turns are expanded. The algorithm tries to choose notes
 %   within the time of the current tempo that lead to each twiddle being
-%   around 1/8 seconds; this can be adjusted with the ac:maxTwiddleTime
-%   variable.
+%   around 1/8 seconds.
 % * Rall, poco rall and a tempo are observed. It'd be fairly trivial to
 %   make accel. and stringendo and so on work too.
 
@@ -135,10 +134,11 @@
 %    customize its effect to user-settable repeat-types. Here the most general
 %    setting is hard-coded, resulting in unchanged behavior.
 
-\version "2.23.2"
+\version "2.25.23"
 
-#(use-modules (srfi srfi-11))
-#(use-modules (lily display-lily))
+#(use-modules (srfi srfi-11)
+              (ice-9 control)
+              (lily display-lily))
 
 % PARAMETERS
 % How much to compress notes marked Staccato.  CPE Bach says `as short as
@@ -163,12 +163,8 @@
 
 % How much to slow down for a rall. or a poco rall.
 % (or speed up for accel or poco accel)
-#(define ac:rallFactor (ly:make-moment 60/100)) % 40% slowdown
-#(define ac:pocoRallFactor (ly:make-moment 90/100)) % 10% slowdown
-
-% The absolute time for a twiddle in a trill, in minutes.
-% Start with 1/4 seconds == 1/240 minutes
-#(define ac:maxTwiddleTime (ly:make-moment 1/240))
+#(define ac:rallFactor 60/100) % 40% slowdown
+#(define ac:pocoRallFactor 90/100) % 10% slowdown
 
 % How long ordinary grace notes should be relative to their notated
 % duration.  9/40 is LilyPond's built-in behavior for MIDI output
@@ -208,7 +204,7 @@
                 (cons 6 0))))
 
 
-#(define ac:currentTempo (ly:make-moment 15/1)) % 4 = 60, measured wholes per minute
+#(define ac:currentTempo 60/4) % 4 = 60, measured wholes per minute
 #(define ac:lastTempo ac:currentTempo) % for 'a tempo' or 'tempo I'
 
 % The duration of the current note.  Start at a crotchet
@@ -231,7 +227,7 @@
      ((EventChord)
       (set! ac:eventsBackward (cons m ac:eventsBackward))
       m)
-     ((BarCheck SkipMusic)
+     ((BarCheckEvent SkipMusic)
       (let ((wm (make-sequential-music (list m))))
        (set! ac:eventsBackward (cons wm ac:eventsBackward))
        wm))
@@ -278,8 +274,10 @@
   (case sym
    ((tempoWholesPerMinute)
     (set! ac:currentTempo (ly:music-property music 'value))
-    (set! ac:lastTempo ac:currentTempo)
-  )))
+    (set! ac:lastTempo ac:currentTempo))
+   ((tempoWholesPerMinuteAsMoment)
+    (set! ac:currentTempo (ly:moment-main (ly:music-property music 'value)))
+    (set! ac:lastTempo ac:currentTempo))))
 
 % Raise note one step in the current diatonic scale.
 #(define (ac:up note)
@@ -308,22 +306,12 @@
 )
 
 % Shorten a note, and save the note's original duration in ac:currentDuration
-#(define (ac:articulate-one-note m fraction)
-  "Replace m with m*fraction"
+#(define (ac:articulate-one-note m scale)
+  "Replace m with m*scale"
   (if  (eq? 'NoteEvent (ly:music-property m 'name))
-   (let*
-    ((dur (ly:music-property m 'duration))
-     (l (ly:duration-log dur))
-     (d (ly:duration-dot-count dur))
-     (factor (ly:duration-factor dur))
-     (num (car fraction))
-     (denom (cdr fraction)))
-    (begin
-     (set! ac:currentDuration dur)
-     (set! (ly:music-property m 'duration)
-      (ly:make-duration l d
-       (* num (car factor))
-       (* denom (cdr factor))))))
+   (let ((dur (ly:music-property m 'duration)))
+    (set! ac:currentDuration dur)
+    (set! (ly:music-property m 'duration) (* dur (scale->factor scale))))
    m))
 
 % helper routine to set duration.
@@ -370,20 +358,6 @@
  music))
 
 
-% absolute time in minutes of a length of music, as a rational number (moment)
-#(define (ac:abstime music)
-  (ly:moment-div (ly:music-length music) ac:currentTempo))
-
-% convert absolute time (in minutes) to a moment in the current tempo
-#(define (ac:abs->mom m)
-  (ly:moment-mul m ac:currentTempo))
-
-
-% a moment that is ac:maxTwiddletime seconds at the current tempo.
-#(define (ac:targetTwiddleTime)
-  (ac:abs->mom ac:maxTwiddleTime))
-
-
 % Nearest twiddletime (in minutes) achievable with power-of-2 divisions of
 % the original music.  (twiddletime is the time for one pair of notes
 % in a trill)
@@ -393,13 +367,10 @@
                      (and (eq? 'ArticulationEvent (ly:music-property x 'name))
                       (eq? 'trill (ly:music-property x 'articulation-type))))
               (ly:music-property music 'elements)))
-         (pre-t (if (pair? tr) (ly:music-property (car tr) 'twiddle)
-                 '()))
-         (hemisemimom (ly:make-moment 1/16))
-         (t (ac:targetTwiddleTime)))
-   (if (ly:moment? pre-t)
+         (pre-t (if (pair? tr) (ly:music-property (car tr) 'twiddle) '())))
+   (if (number? pre-t)
     pre-t
-    hemisemimom)))
+    1/16)))
 
 
 
@@ -409,14 +380,11 @@
   " Replace music with time-compressed repeats of the music,
     maybe accelerating if the length is longer than a crotchet "
   (let* ((hemisemidur (ly:make-duration 5 0 1/1))
-         (orig-len  (ly:music-length music))
+         (orig-len  (ly:moment-main (ly:music-length music)))
          (t (ac:twiddletime music))
          (uppernote '())
-         (note_moment (ly:moment-mul t (ly:make-moment 1/2)))
-         (c1 (ly:moment-div orig-len t))
-         (c2 (inexact->exact
-              (round (/ (ly:moment-main-numerator c1)
-                      (* 2 (ly:moment-main-denominator c1))))))
+         (c1 (/ orig-len t))
+         (c2 (inexact->exact (round (/ c1 2))))
          (count (if (< c2 2) 2 c2)))
 
    (set! (ly:music-property music 'elements)
@@ -437,14 +405,13 @@
             (loop (append (list (ly:music-deep-copy uppernote) (ly:music-deep-copy music)) so_far) (1- c))
             so_far)))
           (trillMusic (make-sequential-music trillMusicElements))
-          (newlen (ly:music-length trillMusic))
-          (factor (ly:moment-div  orig-len newlen)))
+          (newlen (ly:moment-main (ly:music-length trillMusic)))
+          (factor (/ orig-len newlen)))
     (ly:music-compress trillMusic factor)
 ; accelerating the music seems to put lily into an infinite loop in
 ; its layout and midi engines.
 ;    (let* ((realfactor (exp (* (/ 1.0 count) (log 0.75))))
-;          (factor (ly:make-moment (inexact->exact (round (* 1024 realfactor)))
-;                   1024)))
+;          (factor (/ (inexact->exact (round (* 1024 realfactor))) 1024)))
 ;     (ac:accel trillMusic factor))
  )))
 
@@ -461,17 +428,10 @@
    new-music))
 
 %
-% Generate a tempoChangeEvent and its associated property setting.
+% Create music that changes the tempo
 %
 #(define (ac:tempoChange tempo)
-  (make-sequential-music
-   (list (make-music 'TempoChangeEvent
-          'metronome-count
-          tempo
-          'tempo-unit
-          (ly:make-duration 0 0 1/1))
-    (context-spec-music
-    (make-property-set 'tempoWholesPerMinute  tempo) 'Score))))
+  #{ \tempo 1 = #tempo #})
 
 %
 % Totally unfold repeats, so that the non-obvious sequencing doesn't
@@ -486,22 +446,6 @@
   (music-map
    (lambda (m)
     (case (ly:music-property m 'name)
-     ((UnfoldedRepeatedMusic)
-      (let
-       ((body (ly:music-property m 'element))
-        (altl (ly:music-property m 'elements))
-        (rc (ly:music-property m 'repeat-count)))
-       (if (null? altl)
-        (make-sequential-music
-         (list-tabulate rc (lambda (i) (ly:music-deep-copy body))))
-        (let ((ealtl (if (> (length altl) rc) (take altl rc) altl)))
-         (make-sequential-music
-          (apply append!
-           (append!
-            (list-tabulate
-             (- rc (length ealtl))
-             (lambda (i) (list (ly:music-deep-copy body) (ly:music-deep-copy (car ealtl)))))
-            (map (lambda (alt) (list (ly:music-deep-copy body) alt)) ealtl))))))))
      ((EventChord)
       (let-values
        (((trem evl)
@@ -533,14 +477,14 @@
      ((MultiMeasureRestMusic)
       (make-sequential-music
        (list
-        (make-music 'BarCheck)
+        (make-music 'BarCheckEvent)
         (make-music 'EventChord
           'elements (ly:music-property m 'articulations))
         (make-music 'SkipMusic 'duration (ly:music-property m 'duration))
-        (make-music 'BarCheck))))
+        (make-music 'BarCheckEvent))))
      (else
       m)))
-   (unfold-repeats '() music)))
+   (unfold-repeats-fully music)))
 
 % If there's an articulation, use it.
 % If in a slur, use (1 . 1) instead (unless the note is marked staccato,
@@ -683,26 +627,20 @@
         (map
          (lambda (x) (ac:articulate-one-note x (cadr actions)))
          (ly:music-property music 'elements))
-        (let*
-         ((num (caadr actions))
-          (denom (cdadr actions))
-          (mult (ly:duration-factor ac:currentDuration))
-          (newnum (* (- denom num) (car mult)))
-          (newdenom (* (cdr mult) denom))
-          (len (ly:duration-log ac:currentDuration))
-          (dots (ly:duration-dot-count ac:currentDuration)))
-
+        (let ((num (caadr actions))
+              (denom (cdadr actions)))
          (if (not (eqv? num denom))
           (make-sequential-music
            (list (ac:to128 music)
            (make-music 'EventChord 'elements
             (list
-             (make-music 'RestEvent 'duration (ly:make-duration len dots newnum newdenom))))))
+             (make-music 'RestEvent
+              'duration (* ac:currentDuration (- 1 (/ num denom))))))))
           music)))
 
        ((accel)
         (set! ac:lastTempo ac:currentTempo)
-        (set! ac:currentTempo (ly:moment-div ac:currentTempo ac:rallFactor))
+        (set! ac:currentTempo (/ ac:currentTempo ac:rallFactor))
         (let ((pset (ac:tempoChange ac:currentTempo)))
          (if (null? (cdr actions))
           (make-sequential-music (list pset music))
@@ -711,7 +649,7 @@
 
        ((pocoAccel)
         (set! ac:lastTempo ac:currentTempo)
-        (set! ac:currentTempo (ly:moment-div ac:currentTempo ac:pocoRallFactor))
+        (set! ac:currentTempo (/ ac:currentTempo ac:pocoRallFactor))
         (let ((pset (ac:tempoChange ac:currentTempo)))
          (if (null? (cdr actions))
           (make-sequential-music (list pset music))
@@ -720,7 +658,7 @@
 
        ((rall)
         (set! ac:lastTempo ac:currentTempo)
-        (set! ac:currentTempo (ly:moment-mul ac:currentTempo ac:rallFactor))
+        (set! ac:currentTempo (* ac:currentTempo ac:rallFactor))
         (let ((pset (ac:tempoChange ac:currentTempo)))
          (if (null? (cdr actions))
           (make-sequential-music (list pset music))
@@ -729,7 +667,7 @@
 
        ((pocoRall)
         (set! ac:lastTempo ac:currentTempo)
-        (set! ac:currentTempo (ly:moment-mul ac:currentTempo ac:pocoRallFactor))
+        (set! ac:currentTempo (* ac:currentTempo ac:pocoRallFactor))
         (let ((pset (ac:tempoChange ac:currentTempo)))
          (if (null? (cdr actions))
           (make-sequential-music (list pset music))
@@ -804,9 +742,9 @@
         (let*
          ((dur (ly:music-property
                 (car (ly:music-property music 'elements)) 'duration))
-          (factor (ly:duration-factor dur))
           (newdur (ly:make-duration (+ (ly:duration-log dur) 2)
-                   (ly:duration-dot-count dur) (car factor)(cdr factor))))
+                                    (ly:duration-dot-count dur)
+                                    (ly:duration-scale dur))))
          (begin
           (map (lambda (y) (ac:setduration y newdur))
            (ly:music-property music 'elements))
@@ -842,7 +780,7 @@
    ((eq? 'GraceMusic (ly:music-property music 'name))
     (let
      ((first-ev
-       (call-with-current-continuation
+       (call-with-escape-continuation
         (lambda (yield-fev)
          (music-map
           (lambda (m)
@@ -864,7 +802,7 @@
      (set! ac:stealForward (+ ac:stealForward (* glen (- 1 ac:defaultGraceBackwardness))))
      gmus))
 
-   ((memq (ly:music-property music 'name) '(BarCheck SkipMusic))
+   ((memq (ly:music-property music 'name) '(BarCheckEvent SkipMusic))
     (let ((totallen (ly:moment-main (ly:music-length music)))
           (steallen ac:stealForward))
      (cond
@@ -988,13 +926,15 @@ articulate = #(define-music-function (music)
 % Special handling for a gruppetto after a trill.
 #(define (ac:aftergrace main grace)
   (let*
-   ((main-length (ly:music-length main))
-    (grace-orig-length (ly:music-length grace))
+   ((main-length (ly:moment-main (ly:music-length main)))
+    (grace-orig-length (ly:moment-main (ly:music-length grace)))
     (gracelen (ac:twiddletime main))
-    (grace-factor (ly:moment-div gracelen grace-orig-length))
-    (new-main-length (ly:moment-sub main-length gracelen))
-    (factor (ly:moment-div new-main-length main-length))
+    (grace-factor (/ gracelen grace-orig-length))
+    (new-main-length (- main-length gracelen))
+    (factor (/ new-main-length main-length))
   )
+   ;; TODO: Is it acceptable to set a music property (twiddle) that is not
+   ;; listed in scm/define-music-properties.scm?
    (map (lambda (y) (set! (ly:music-property y 'twiddle) gracelen))
          (filter (lambda (z)
                   (and

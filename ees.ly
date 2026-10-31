@@ -85,6 +85,7 @@
   bottom-margin = .5\cm
   outer-margin = 2\cm
   inner-margin = 1.5\cm
+  binding-offset = 0\mm
   indent = 1\cm
 
   oddFooterMarkup = \markup {}
@@ -252,17 +253,17 @@ transposedTimpShort = #(define-scheme-function
 tempoMarkup = #(define-music-function
   (parser location arg)
   (markup?)
-  #{ \tempo \markup \medium { \larger \larger #arg } #})
+  #{ \tempo \markup \normal-weight { \larger \larger #arg } #})
 
 tempoTitle = #(define-music-function
   (parser location title)
   (string?)
-  #{ \tempo \markup \medium { \larger \larger \italic #title } #})
+  #{ \tempo \markup \normal-weight { \larger \larger \italic #title } #})
 
 tempoTitleMarkup = #(define-music-function
   (parser location title tempo)
   (string? string?)
-  #{ \tempo \markup \medium { \larger \larger { \italic #title "·" #tempo } } #})
+  #{ \tempo \markup \normal-weight { \larger \larger { \italic #title "·" #tempo } } #})
 
 
 #(define-markup-command
@@ -550,20 +551,20 @@ setSoloText = #(define-scheme-function
   (parser location text)
   (string?)
   #{
-    \set Staff.soloText = \markup \medium \remark #text
+    \set Staff.soloText = \markup \normal-weight \remark #text
   #})
 
 setSoloIIText = #(define-scheme-function
   (parser location text)
   (string?)
   #{
-    \set Staff.soloIIText = \markup \medium \remark #text
+    \set Staff.soloIIText = \markup \normal-weight \remark #text
   #})
 
 twofourtime = {
   \overrideTimeSignatureSettings
     2/4
-    1/8
+    #1/8
     #'(4)
     #'((end . (((1 . 16) . (4 4)))))
 }
@@ -571,7 +572,7 @@ twofourtime = {
 twotwotime = {
   \overrideTimeSignatureSettings
     2/2
-    1/4
+    #1/4
     #'(4)
     #'((end . (((1 . 16) . (4 4 4 4)) ((1 . 8) . (4 4)))))
 }
@@ -617,13 +618,11 @@ fC = \set Staff.forceClef = ##t
 
 sbOn = {
   \set subdivideBeams = ##t
-  \set baseMoment = #(ly:make-moment 1/8)
-  \set beatStructure = #'(2 2 2 2)
+  \set beamMinimumSubdivision = #1/8
 }
 sbOff = {
   \unset subdivideBeams
-  \unset baseMoment
-  \unset beatStructure
+  \unset beamMinimumSubdivision
 }
 
 parOn = {
@@ -759,6 +758,7 @@ tacet = #(define-scheme-function
                       (markup #:override '(font-encoding . latin1)
                               #:small #:center-align
                               "ten."))))
+      (side-axis . ,Y)
       (direction . ,UP)
       (padding . 0.50))
       (acons
@@ -769,6 +769,7 @@ tacet = #(define-scheme-function
                           (markup #:override '(font-encoding . latin1)
                                   #:small #:italic #:center-align
                                   "ten."))))
+          (side-axis . ,Y)
           (direction . ,UP)
           (padding . 0.50))
         default-script-alist)))
@@ -818,7 +819,7 @@ tacet = #(define-scheme-function
     \accidentalStyle modern
     extraNatural = ##t
     \override NoteHead.style = #'baroque
-    aDueText = \markup { \medium \remark "a 2" }
+    aDueText = \markup { \normal-weight \remark "a 2" }
     \override DynamicTextSpanner.style = #'none
   }
   \context {
@@ -829,7 +830,7 @@ tacet = #(define-scheme-function
   \context {
     \Lyrics
     \override LyricText.font-size = #-1
-    \override StanzaNumber.font-series = #'medium
+    \override StanzaNumber.font-series = #'normal
     \override StanzaNumber.font-size = #-1
     \override VerticalAxisGroup.nonstaff-unrelatedstaff-spacing.padding = #-100
   }

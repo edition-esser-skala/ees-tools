@@ -12,7 +12,7 @@ $(scores:%=tmp/%.pdf): tmp/%.pdf: scores/%.ly \
                                   $(notes:%=notes/%.ly) \
                                   definitions.ly
 >mkdir -p tmp
->$(LILYPOND) -dlog-file=$(basename $@).ly -o tmp '$(realpath $<)'
+>$(LILYPOND) -dlog-file=$(basename $(notdir $@)).ly -o tmp '$(realpath $<)'
 >cat $(basename $@).ly.log
 
 ## all scores ('make scores')
