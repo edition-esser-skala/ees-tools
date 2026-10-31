@@ -20,6 +20,7 @@
 \DeclareStringOption[80]{shortnamesize}
 \DeclareStringOption[60]{shorttitlesize}
 \DeclareStringOption[../tmp]{tocdir}
+\DeclareStringOption[8cm]{tocrightmargin}
 \DeclareStringOption[default]{tocstyle}
 \DeclareBoolOption[false]{enlargefirstpage}
 \DeclareBoolOption[true]{toe}
@@ -56,7 +57,7 @@
 \setkomafont{pageheadfoot}{\normalsize}
 \setkomafont{descriptionlabel}{\rmfamily\sbseries}
 
-\def\pnumbox#1{#1\hspace*{8cm}}
+\def\pnumbox#1{#1\hspace*{\ees@tocrightmargin}}
 \DeclareTOCStyleEntry[
   indent=0pt,
   beforeskip=\baselineskip,
