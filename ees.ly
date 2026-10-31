@@ -377,6 +377,13 @@ x = \revert LyricText.font-shape
 ten = #(make-articulation 'ten)
 tenE = #(make-articulation 'tenE)
 
+fermataFine = #(define-event-function () ()
+  #{ \tweak Script.outside-staff-priority #0
+       \fermata
+     \tweak TextScript.self-alignment-X #-.4
+       ^\markup \remark "fine" #}
+)
+
 bp = #(define-music-function
   (parser location beg end)
   (number? number?)

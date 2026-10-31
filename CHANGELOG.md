@@ -8,6 +8,7 @@
 - macros:
   - dynamics: `\sffz` (with editorial variant)
   - `\brkBeam`, which replaces `\noBeam`
+  - `\fermataFine`: a fermata with centered “fine”
   - `\mvD <x>`: move dynamic mark `<x>` staff spaces
   - `\mvDInScore <x>`: move dynamic mark `<x>` staff spaces only in the full score
   - `\mvT <x>`: move text `<x>` staff spaces

@@ -372,6 +372,7 @@ TOC commands:
 - `\bp`: override beam positions
 - `\extraNat`: force accidental
 - `\fC`: force clef
+- `\fermataFine`: a fermata with centered “fine”
 - `\hA`: hide accidental
 - `\hairpinDashed` and `\hairpinSolid`: turn on/off dashed hairpins
 - `\hideTn`: hide a single tuplet number
