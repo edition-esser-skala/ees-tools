@@ -5,6 +5,7 @@
 ### Added
 
 - macros:
+  - dynamics: `\sffz` (with editorial variant)
   - `\brkBeam`, which replaces `\noBeam`
   - `\parTupletNumber`, which parenthesizes the following tuplet number
 - support for bibliographies (via biblatex, biblatex-apa and biber)
