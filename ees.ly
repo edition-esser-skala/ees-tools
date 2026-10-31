@@ -571,6 +571,7 @@ mvDl = \once \override DynamicText.X-offset = #-2
 mvDll = \once \override DynamicText.X-offset = #-3
 scriptOut = \once \override Script.avoid-slur = #'outside
 pao = \once \partCombineApart
+pco = \once \partCombineChords
 pa = \partCombineApart
 pd = \partCombineAutomatic
 hairpinDashed = \override Hairpin.style = #'dashed-line

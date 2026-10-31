@@ -8,6 +8,7 @@
   - dynamics: `\sffz` (with editorial variant)
   - `\brkBeam`, which replaces `\noBeam`
   - `\parTupletNumber`, which parenthesizes the following tuplet number
+  - `\pco` (short for `\once \partCombineChords`)
 - support for bibliographies (via biblatex, biblatex-apa and biber)
 - `add_variables.py`:
   - support for 3/4 time without denominator

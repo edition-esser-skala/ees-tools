@@ -387,6 +387,7 @@ TOC commands:
 
 - `\pa`: short for `\partCombineApart`
 - `\pao`: short for `\once \partCombineApart`
+- `\pco`: short for `\once \partCombineChords`
 - `\pd`: short for `\partCombineAutomatic`
 - `\rh` and `\lh`: change staff in keyboard music
 
