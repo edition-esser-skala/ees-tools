@@ -837,6 +837,21 @@ stopDeleted = {
 }
 ```
 
+Subdivide eighth-tuplets in common time.
+
+```lilypond
+sbTupletsOn = {
+  \set Staff.beamExceptions = #'()
+  \set Staff.baseMoment = #(ly:make-moment 1/4)
+  \set Staff.beatStructure = 1,1,1,1
+}
+sbTupletsOff = {
+  \unset Staff.beamExceptions
+  \unset Staff.baseMoment
+  \unset Staff.beatStructure
+}
+```
+
 Make a multirow short instrument name.
 
 ```lilypond

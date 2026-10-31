@@ -15,7 +15,9 @@
 - data for printed editions:
   - `printer.yaml` now supports a key `ismn`
   - other files in this folder are now also described (`cover.svg/pdf`, `front_cover.png`, and `full_score_for_print.pdf`)
-- a snippet to add git push URLs for both GitHub and Codeberg
+- snippets:
+  - subdivide eighth-tuplets in common time
+  - add git push URLs for both GitHub and Codeberg
 
 
 ## v2026.01.0 – 2026-01-18
