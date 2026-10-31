@@ -37,6 +37,7 @@ $(scores:%=final/%.pdf): final/%.pdf: front_matter/critical_report.tex \
                                       CHANGELOG.md
 >python $(EES_TOOLS_PATH)/read_metadata.py -c tag -t $*
 >latexmk -cd \
+>        -bibtex \
 >        -lualatex \
 >        -outdir=../final \
 >        -jobname=$* \

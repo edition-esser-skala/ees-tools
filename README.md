@@ -630,6 +630,21 @@ and included in the table:
                   The third version (entered in the T~staff) is reproduced
 ```
 
+### Bibliography
+
+The front matter may contain a bibliography; to this end, the biblatex and biblatex-apa packages are available, and latexmk will run biber if necessary.
+
+```latex
+\usepackage[style=apa]{biblatex}
+\addbibresource{references.bib}
+
+...
+
+\textcite{Doe2026} describes all known sources.
+
+\printbibliography
+```
+
 
 ## .github/workflows/engrave-and-release.yaml
 
