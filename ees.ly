@@ -601,6 +601,12 @@ parOff = {
       (list left-par (cadr par-list))))
 }
 
+#(define-public (tuplet-number::parenthesize grob)
+  (let ((ev (event-cause grob)))
+    (format #f "[~a]"
+            (ly:event-property ev 'denominator))))
+parTupletNumber = \once \override TupletNumber.text = #tuplet-number::parenthesize
+
 markCritnote = {
   \once \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
   \mark \critnote

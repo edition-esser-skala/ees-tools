@@ -4,6 +4,8 @@
 
 ### Added
 
+- macros:
+  - `\parTupletNumber`, which parenthesizes the following tuplet number
 - support for bibliographies (via biblatex, biblatex-apa and biber)
 - `add_variables.py`:
   - support for 3/4 time without denominator
