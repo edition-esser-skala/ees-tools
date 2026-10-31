@@ -181,16 +181,24 @@ General LilyPond settings and macros. This file is included by `definitions.ly` 
 
 ### Options
 
-Set these Scheme variables before including the file, like
+- `option-is-full-score` (`#t`): Modify the behaviour of some commands so that, e.g., a dynamic script is only moved in the full score (`\mvDInScore`) or a page break only appears in a part (`\pageBreakInPart`).
+- `option-movement-title-markup` (`"title"`): Select the format of the movement title and the number of arguments for `\section`. Choices: `"genre-number-title"`, `"number-title"`, and `"title"`.
+- `option-print-all-bar-numbers` (`#f`): If true, print all bar numbers (useful when preparing a score).
+
+Set these Scheme variables *before* including the file, like
 
 ```lilypond
+% in definitions.ly
 #(define option-movement-title-markup "number-title")
 #(define option-print-all-bar-numbers #f)
 \include "ees.ly"
-```
 
-- `option-movement-title-markup`: Select the format of the movement title and the number of arguments for `\section`. Choices: `"genre-number-title"`, `"number-title"`, and `"title"` (default).
-- `option-print-all-bar-numbers`: If true, print all bar numbers (useful when preparing a score; default: false).
+% in the respective part
+#(define option-is-full-score #f)
+\include "../definitions.ly"
+#(define option-instrument-name "vl 1")
+\include "score_settings/one-staff.ly"
+```
 
 
 ### Score settings
@@ -282,6 +290,7 @@ Sectioning commands:
 - `\section "<number>" "<genre>" "<title>"`: Adds a section heading. The number of arguments is determined by the option `option-movement-title-format`. Must be used inside a `\bookpart`.
 - `\subsection "<title>"`: Adds an unnumbered subsection heading. Must be used inside a `\bookpart`.
 - `\tacet "<level>" [<distance> = #4] "<title>"`: Adds `<title>` centered and the italic word “tacet” below. The optional argument `<distance>` allows to change the vertical distance to the preceding staff. `<level>` (either `section` or `subsection`) ensures that the font size matches the respective heading.
+- `\pageBreakInPart`: insert a page break only if `option-is-full-score` is false.
 
 TOC commands:
 
@@ -373,6 +382,7 @@ TOC commands:
 - `\mvD <x>`: move dynamic mark `<x>` staff spaces
 - `\mvDl`: move dynamic mark 2 staff spaces to the left
 - `\mvDll`: move dynamic mark 3 staff spaces to the left
+- `\mvDInScore <x>`: move dynamic mark `<x>` staff spaces only if `option-is-full-score` is true
 - `\parOn` and `\parOff`: only print the left/right parenthesis in `\parenthesize`
 - `\parTn`: parenthesize tuplet number
 - `\sbOn` and `\sbOff`: turn on/off subdivided beams

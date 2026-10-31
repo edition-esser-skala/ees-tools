@@ -4,25 +4,28 @@
 
 ### Added
 
+- a boolean option `option-is-full-score` for modifying the behaviour of some commands depending on whether a full score or part is rendered
 - macros:
   - dynamics: `\sffz` (with editorial variant)
   - `\brkBeam`, which replaces `\noBeam`
   - `\mvD <x>`: move dynamic mark `<x>` staff spaces
+  - `\mvDInScore <x>`: move dynamic mark `<x>` staff spaces only in the full score
   - `\mvT <x>`: move text `<x>` staff spaces
+  - `\pageBreakInPart`: insert a page break only in parts
   - `\parTn`, which parenthesizes the following tuplet number
   - `\pco` (short for `\once \partCombineChords`)
   - `\ten` and `\tenE` for a centered text “ten.”
+- a class option `tocrightmargin` that changes the space between page number and right margin in the TOC (also works as YAML key for collections)
 - support for bibliographies (via biblatex, biblatex-apa and biber)
+- data for printed editions:
+  - `printer.yaml` now supports a key `ismn`
+  - other files in this folder are now also described (`cover.svg/pdf`, `front_cover.png`, and `full_score_for_print.pdf`)
 - `add_variables.py`:
   - support for 3/4 time without denominator
   - support for a different displayed time signature
   - instrument data for the contra bassoon
 - [Pixi](https://pixi.prefix.dev) as environment manager
 - a script to download all latest scores from all repositories
-- a class option `tocrightmargin` that changes the space between page number and right margin in the TOC (also works as YAML key for collections)
-- data for printed editions:
-  - `printer.yaml` now supports a key `ismn`
-  - other files in this folder are now also described (`cover.svg/pdf`, `front_cover.png`, and `full_score_for_print.pdf`)
 - snippets:
   - fine-tune dynamics position
   - subdivide eighth-tuplets in common time

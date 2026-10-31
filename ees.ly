@@ -1,6 +1,11 @@
 \version "2.22.0"
 \language "deutsch"
 
+#(define option-is-full-score
+  (if (not (defined? 'option-is-full-score))
+  #t
+  option-is-full-score))
+
 #(define option-movement-title-format
   (if (not (defined? 'option-movement-title-format))
     "title"
@@ -584,6 +589,15 @@ mvDl = \mvD #-2
 mvDll = \mvD #-3
 mvTz = \tweak TextScript.X-offset #0 \etc
 
+mvDInScore = #(define-music-function
+  (parser location offset)
+  (number?)
+  (if option-is-full-score #{
+    \once \override DynamicText.X-offset = #offset
+  #} #{
+    \once \override DynamicText.X-offset = #0
+  #}))
+
 
 scriptOut = \once \override Script.avoid-slur = #'outside
 pao = \once \partCombineApart
@@ -650,6 +664,15 @@ markTimeSig = #(define-music-function
   #})
 
 brkBeam = #(make-music 'BeamForbidEvent)
+
+pageBreakInPart = #(define-music-function
+  (parser location)
+  ()
+  (if option-is-full-score #{
+    % do nothing
+  #} #{
+    \pageBreak
+  #}))
 
 incipit = #(define-music-function
   (name clef name-staff-space staff-system-space)
