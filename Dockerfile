@@ -14,4 +14,4 @@ COPY docker .
 
 RUN ./setup.sh
 
-CMD make final/scores
+CMD ["make", "final/scores"]
