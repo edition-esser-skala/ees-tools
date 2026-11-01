@@ -794,13 +794,13 @@ markOsannaDaCapo = {
 Change displayed time signature fraction.
 
 ```lilypond
-\set Staff.timeSignatureFraction = 2/2
+\set Staff.timeSignature = 2/2
 ```
 
 Show only numerator of time signature.
 
 ```lilypond
-\once \override Staff.TimeSignature.style = #'single-digit
+\once \override Staff.TimeSignature.style = #'single-number
 ```
 
 Add name to choir staff group.
@@ -865,12 +865,12 @@ Subdivide eighth-tuplets in common time.
 ```lilypond
 sbTupletsOn = {
   \set Staff.beamExceptions = #'()
-  \set Staff.baseMoment = #(ly:make-moment 1/4)
+  \set Staff.beatBase = #1/4
   \set Staff.beatStructure = 1,1,1,1
 }
 sbTupletsOff = {
   \unset Staff.beamExceptions
-  \unset Staff.baseMoment
+  \unset Staff.beatBase
   \unset Staff.beatStructure
 }
 ```

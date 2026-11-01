@@ -222,9 +222,9 @@ for instrument in args.notes:
     if args.partial:
         flags.append(f"\\partial {args.partial}")
     if args.time == "3":
-        flags.append("  \\once \\override Staff.TimeSignature.style = #'single-digit")
+        flags.append("  \\once \\override Staff.TimeSignature.style = #'single-number")
     if args.time_displayed:
-        flags.append(f"  \\set Staff.timeSignatureFraction = {args.time_displayed}")
+        flags.append(f"  \\set Staff.timeSignature = {args.time_displayed}")
 
 
     keys = dict(
