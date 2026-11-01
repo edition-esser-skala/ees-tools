@@ -7,6 +7,16 @@
   - `'single-digit` → `'single-number`
   - `\medium` → `\normal-weight`
   - check separate beam subdivision functions (replace `baseMoment` by new properties)
+- use the following new macros, remove any separate definitions:
+  - `\brkBeam`
+  - `\fermataFine`
+  - `\mvD`
+  - `\mvT`
+  - `\pco`
+- update the following files:
+  - `engrave-and-release.yml`
+  - `make.py` (only collections)
+
 
 
 ## v2023.10.0 to v2026.01.0
