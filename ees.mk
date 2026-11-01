@@ -45,6 +45,7 @@ $(scores:%=final/%.pdf): final/%.pdf: front_matter/critical_report.tex \
 >cp final/$*.log tmp/$*.tex.log
 >latexmk -c \
 >        -outdir=final \
+>        -e '$$bibtex_use=2;' \
 >        -jobname=$* \
 >        front_matter/critical_report.tex
 >rm -rf front_matter/markdown_cache

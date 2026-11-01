@@ -27,6 +27,6 @@ fmtcount
 bookmark
 mfirstuc
 pgf
-bibtex
+biblatex
 biber
 biblatex-apa

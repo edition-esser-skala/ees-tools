@@ -27,6 +27,7 @@ mv /root/.TinyTeX /opt/tinytex
 tlmgr conf auxtrees add $EES_TOOLS_PATH
 tlmgr update --self
 tlmgr install `cat tinytex_packages.txt`
+tlmgr path add
 chmod -R a+rw /opt/tinytex
 
 # LilyPond
