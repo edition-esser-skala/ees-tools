@@ -1,26 +1,26 @@
 # Changelog
 
-## v2026.01.0.9000 – unreleased
+## v2026.11.0 – 2026-11-01
 
 ### Added
 
 - a boolean option `option-is-full-score` for modifying the behaviour of some commands depending on whether a full score or part is rendered
 - macros:
-  - dynamics: `\sffz` (with editorial variant)
-  - `\brkBeam`, which replaces `\noBeam`
+  - `\brkBeam`: replaces `\noBeam`
   - `\fermataFine`: a fermata with centered “fine”
   - `\mvD <x>`: move dynamic mark `<x>` staff spaces
   - `\mvDInScore <x>`: move dynamic mark `<x>` staff spaces only in the full score
   - `\mvT <x>`: move text `<x>` staff spaces
   - `\pageBreakInPart`: insert a page break only in parts
-  - `\parTn`, which parenthesizes the following tuplet number
-  - `\pco` (short for `\once \partCombineChords`)
-  - `\ten` and `\tenE` for a centered text “ten.”
-- a class option `tocrightmargin` that changes the space between page number and right margin in the TOC (also works as YAML key for collections)
+  - `\parTn`: parenthesize the following tuplet number
+  - `\pco`: short for `\once \partCombineChords`
+  - `\sffz` and `\sffzE`: dynamics
+  - `\ten` and `\tenE`: centered text “ten.”
+- a LaTeX class option `tocrightmargin` that changes the space between page number and right margin in the TOC (also works as YAML key for collections)
 - support for bibliographies (via biblatex, biblatex-apa and biber)
 - data for printed editions:
-  - `printer.yaml` now supports a key `ismn`
-  - other files in this folder are now also described (`cover.svg/pdf`, `front_cover.png`, and `full_score_for_print.pdf`)
+  - `printer.yaml` now supports a key `ismn` for specifying an International Standard Music Number
+  - other files in this folder are now also described
 - `add_variables.py`:
   - support for 3/4 time without denominator
   - support for a different displayed time signature
@@ -35,7 +35,7 @@
 
 ### Changed
 
-- LilyPond has been updated to v2.26.0. See [documents/updating.md] for breaking changes.
+- LilyPond has been updated to v2.26.0. See [documents/updating.md](documents/updating.md) for breaking changes.
 - The default accidental style is now “modern”, which eliminates frequent usage of `\hA`.
 
 
