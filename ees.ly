@@ -620,6 +620,14 @@ sbOn = {
   \set subdivideBeams = ##t
   \set beamMinimumSubdivision = #1/8
 }
+sbQuarterOn = {
+  \set subdivideBeams = ##t
+  \set beamMinimumSubdivision = #1/4
+}
+sbSixteenthOn = {
+  \set subdivideBeams = ##t
+  \set beamMinimumSubdivision = #1/16
+}
 sbOff = {
   \unset subdivideBeams
   \unset beamMinimumSubdivision

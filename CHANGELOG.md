@@ -14,6 +14,7 @@
   - `\pageBreakInPart`: insert a page break only in parts
   - `\parTn`: parenthesize the following tuplet number
   - `\pco`: short for `\once \partCombineChords`
+  - `\sbQuarterOn` and `\sbSixteenthOn`: subdivide beams every quarter and 16th note
   - `\sffz` and `\sffzE`: dynamics
   - `\ten` and `\tenE`: centered text “ten.”
 - a LaTeX class option `tocrightmargin` that changes the space between page number and right margin in the TOC (also works as YAML key for collections)

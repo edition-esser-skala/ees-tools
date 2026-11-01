@@ -16,7 +16,7 @@
 - update the following files:
   - `engrave-and-release.yml`
   - `make.py` (only collections)
-
+  - `critical_report.tex` (only collections)
 
 
 ## v2023.10.0 to v2026.01.0

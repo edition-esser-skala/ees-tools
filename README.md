@@ -386,7 +386,10 @@ TOC commands:
 - `\mvDInScore <x>`: move dynamic mark `<x>` staff spaces only if `option-is-full-score` is true
 - `\parOn` and `\parOff`: only print the left/right parenthesis in `\parenthesize`
 - `\parTn`: parenthesize tuplet number
-- `\sbOn` and `\sbOff`: turn on/off subdivided beams
+- `\sbOn`: subdivide beams every 8th note
+- `\sbQuarterOn`: subdivide beams every quarter note
+- `\sbSixteenthOn`: subdivide beams every 4th and 16th note
+- `\sbOff`: turn off subdivided beams
 - `\scriptOut`: force script (like `-|`) to be printed outside of slur
 - `\ten` and `\tenE`: a centered text “ten.”
 - `\trillE`: editorial (parenthesized) trill
