@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ees}[2026/10/31 Front matter for the Edition Esser-Skala]
+\ProvidesClass{ees}[2026/11/01 Front matter for the Edition Esser-Skala]
 
 
 
