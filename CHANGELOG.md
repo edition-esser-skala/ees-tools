@@ -1,5 +1,12 @@
 # Changelog
 
+## v2026.11.0.9000 – unreleased
+
+### Fixed
+
+- `ees_articulate.ly`: Appoggiaturas were played short (like grace notes) in v2026.11.0; now they are again rendered at half the main note's duration (see commit [2c7d43bf](https://gitlab.com/lilypond/lilypond/-/commit/2c7d43bf64daeb7a938e6ae0db73475892b9a3fa))
+
+
 ## v2026.11.0 – 2026-11-01
 
 ### Added

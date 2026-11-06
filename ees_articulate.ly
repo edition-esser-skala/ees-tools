@@ -890,9 +890,10 @@ articulate = #(define-music-function (music)
 			    'GraceMusic
 			    element (music
 				     'SequentialMusic
-				     elements (?start
-					       ?music
-					       ?stop))))
+				     elements (?init-context
+                       ?start
+					             ?music
+					             ?stop))))
 		     ;; we check whether ?start and ?stop look like
 		     ;; startAppoggiaturaMusic stopAppoggiaturaMusic
 		     (and (with-music-match (?start (music
