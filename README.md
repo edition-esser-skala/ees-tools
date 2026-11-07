@@ -620,7 +620,7 @@ The value of any additional metadata `<key>` can be retrieved via `\Metadata<Key
 The table of emendations may contain snippets. For each snippet, a LilyPond file should be created in `front_matter`. For instance, `snippet_1.ly` in Eybler's *Missa Sancti Wolfgangi* (HerEy 11) contains
 
 ```lilypond
-\version "2.24.2"
+\version "2.26.0"
 
 \include "ees.ly"
 #(set-global-staff-size 11.22)
@@ -1128,6 +1128,10 @@ git remote set-url --add --push origin git@codeberg.org:edition-esser-skala/repo
   - `.github/workflows/engrave-and-release.yaml`
   - `documents/editorial-guidelines.md`
   - `tex/latex/ees.cls`
+- if necessary, update LilyPond version in
+  - readme
+  - `utils/add_variables.py`
+  - `utils/make_collection.py`
 
 - build the Docker image via
   ```bash

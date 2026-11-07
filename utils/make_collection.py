@@ -80,7 +80,7 @@ LYRICS_TEMPLATE = "\\textlt{{\\textit{{Lyrics}}\\\\{}}}"
 FULL_SCORE_TEMPLATE = """\
 % created by make_collection.py
 % manual adjustments: [describe here]
-\\version "2.24.0"
+\\version "2.26.0"
 
 \\include "../../definitions_main.ly"
 \\include "definitions.ly"
